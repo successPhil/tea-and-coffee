@@ -4,6 +4,7 @@ import UserContext from './contexts/UserContext';
 import ResponsiveAppBar from './features/AppBar/AppBar';
 import Login from './pages/Login';
 import Tea from './pages/Tea';
+import './index.css'
 
 function App() {
 
