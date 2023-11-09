@@ -1,0 +1,188 @@
+[
+    {
+        "model": "coffee_api.Coffee",
+        "pk": 1, 
+        "fields": 
+        {
+            "name": "mexican_chiapas",
+            "description": "Medium-bodied coffee with balanced acidity, featuring flavors of dark chocolate, nuts, and a touch of bright citrus.",
+            "image": "coffee_images/mexican_chiapas.png"
+        }
+    }, 
+    {
+        "model": "coffee_api.Coffee", 
+        "pk": 2, 
+        "fields": 
+        {
+            "name": "costa_rican_tarrazú",
+            "description": "Offers a light and crisp body with notes of bright citrus, floral tones, and a subtle nuttiness.",
+            "image": "coffee_images/costa_rican_tarraz\u00fa.png"
+        }
+    }, 
+    {
+        "model": "coffee_api.Coffee", 
+        "pk": 3, "fields": 
+        {
+            "name": "caramel_latte",
+            "description": "Made with espresso, steamed milk, and a shot of caramel syrup. Topped with a dollop of frothed milk.",
+            "image": "coffee_images/caramel_latte.jpeg"
+        }
+    }, 
+    {
+        "model": "coffee_api.Coffee", 
+        "pk": 4, 
+        "fields": 
+        {
+            "name": "vanilla_latte",
+            "description": "Made with espresso, steamed milk, and a shot of vanilla syrup. Topped with a dollop of frothed milk.",
+            "image": "coffee_images/vanilla_latte.jpeg"
+        }
+    }, 
+    {
+        "model": "coffee_api.Coffee", 
+        "pk": 5, 
+        "fields": 
+        {
+            "name": "italian_roast",
+            "description": "Deep, dark and shiny beans with bold, smoky flavors and a rich, full body. Minimal acidity.",
+            "image": "coffee_images/italian_roast.jpeg"
+        }
+    }, 
+    {
+        "model": "coffee_api.Coffee", 
+        "pk": 6, 
+        "fields": 
+        {
+            "name": "brazilian_santos",
+            "description": "Known for its mild acidity, medium body, and nutty, chocolatey flavors with a slight hint of fruitiness.",
+            "image": "coffee_images/brazilian_santos.png"
+        }
+    }, 
+    {
+        "model": "coffee_api.Coffee", 
+        "pk": 7, 
+        "fields": 
+        {
+            "name": "spanish_roast",
+            "description": "Extremely dark and often has a noticeable charred flavor, with very low acidity and a heavy body.",
+            "image": "coffee_images/spanish_roast.jpeg"
+        }
+    }, 
+    {
+        "model": "coffee_api.Coffee", 
+        "pk": 8, 
+        "fields": 
+        {
+            "name": "hazelnut_latte",
+            "description": "Made with espresso, steamed milk, and a shot of hazelnut syrup. Topped with a dollop of frothed milk.",
+            "image": "coffee_images/hazelnut_latte.jpeg"
+        }
+    }, 
+    {
+        "model": "coffee_api.Coffee", 
+        "pk": 9, 
+        "fields": 
+        {
+            "name": "guatemalan_antigua",
+            "description": "Offers a balanced cup with medium acidity, full body, and flavors of chocolate, caramel, and mild fruity notes.",
+            "image": "coffee_images/guatemalan_antigua.jpeg"
+        }
+    },
+    {
+        "model": "coffee_api.Coffee", 
+        "pk": 10, 
+        "fields": 
+        {
+            "name": "cortado_espresso",
+            "description": "Made by combining equal parts espresso and steamed milk, resulting in a balanced and creamy coffee.",
+            "image": "coffee_images/cortado_espresso.jpeg"
+        }
+    }, 
+    {
+        "model": "coffee_api.Coffee", 
+        "pk": 11, 
+        "fields": 
+        {
+            "name": "kenya_aa",
+            "description": "Has a bright acidity with wine-like characteristics, often featuring fruity and citrusy notes.",
+            "image": "coffee_images/kenya_aa.jpeg"
+        }
+    }, 
+    {
+        "model": "coffee_api.Coffee", 
+        "pk": 12, 
+        "fields": 
+        {
+            "name": "sumatra_manheling",
+            "description": "Full-bodied coffee with low acidity, known for its earthy, herbal, and chocolatey flavors.",
+            "image": "coffee_images/sumatra_mandheling.png"
+        }
+    }, 
+    {
+        "model": "coffee_api.Coffee", 
+        "pk": 13,
+        "fields": 
+        {
+            "name": "doppio_espresso",
+            "description": "A double shot of espresso, providing a strong, concentrated coffee flavor.",
+            "image": "coffee_images/doppio_espresso.jpeg"
+        }
+    }, 
+    {
+        "model": "coffee_api.Coffee", 
+        "pk": 14, 
+        "fields": 
+        {
+            "name": "ethiopian_yirgacheffe",
+            "description": "Known for its bright acidity, floral notes, and fruity flavors, often with hints of citrus and berries.",
+            "image": "coffee_images/ethiopian_yirgacheffe.png"
+        }
+    }, 
+    {
+        "model": "coffee_api.Coffee", 
+        "pk": 15, 
+        "fields": 
+        {
+            "name": "macchiato_espresso",
+            "description": "Espresso stained or marked with a small amount of frothy milk, offering a strong coffee flavor with a hint of creaminess.",
+            "image": "coffee_images/macchiato_espresso.jpeg"}}, {"model": "coffee_api.Coffee", "pk": 16, "fields": {"image": "coffee_images/french_roast.jpeg"
+        }
+    }, 
+    {
+        "model": "coffee_api.Coffee", 
+        "pk": 17, 
+        "fields": 
+        {
+            "name": "vienna_roast",
+            "description": "Dark, but not as extreme as French or Italian roasts. Features a full body with a slight smokiness and dark caramelized sugars.",
+            "image": "coffee_images/vienna_roast.jpeg"
+        }
+    }, 
+    {
+        "model": "coffee_api.Coffee", 
+        "pk": 18, 
+        "fields": 
+        {
+            "name": "ristretto_espresso",
+            "description": "A shorter, even more concentrated shot of espresso, extracted with less water for an intense, bold taste.",
+            "image": "coffee_images/ristretto_espresso.jpeg"
+        }
+    }, 
+    {
+        "model": "coffee_api.Coffee", 
+        "pk": 19, 
+        "fields": 
+        {
+            "name": "mocha_latte",
+            "description": "Combines espresso, steamed milk, and chocolate syrup, creating a rich, chocolatey coffee drink.",
+            "image": "coffee_images/mocha_latte.jpeg"
+        }
+    }, 
+    {
+        "model": "coffee_api.Coffee", 
+        "pk": 20, 
+        "fields": 
+        {
+            "name": "columbian_supremo",
+            "description": "Known for its mild acidity, medium body, and notes of bright citrus, caramel, and chocolate.",
+            "image": "coffee_images/columbian_supremo.jpeg"}}]

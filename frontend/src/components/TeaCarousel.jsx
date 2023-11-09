@@ -5,7 +5,7 @@ import { teaFetch } from '../api/dataApi';
 
 export default function TeaCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [teaData, setTeaData] = useState(null)
+  const [teaData, setTeaData] = useState([])
   const teasPerPage = 3;
 
   useEffect(() => {
@@ -19,13 +19,13 @@ export default function TeaCarousel() {
 
   const nextPage = () => {
     setCurrentIndex((prevIndex) =>
-      (prevIndex + 1) % teas.length
+      (prevIndex + 1) % teaData.length
     );
   };
 
   const prevPage = () => {
     setCurrentIndex((prevIndex) =>
-      (prevIndex - 1 + teas.length) % teas.length 
+      (prevIndex - 1 + teaData.length) % teas.length 
     );
   };
 
@@ -33,7 +33,7 @@ export default function TeaCarousel() {
     <div className='teaCarousel'>
       <button onClick={prevPage}>Previous</button>
       <div className='teaCarouselContainer'>
-        {[...teas, ...teas].slice(currentIndex, currentIndex + teasPerPage).map((tea, index) => (
+        {[...teaData, ...teaData].slice(currentIndex, currentIndex + teasPerPage).map((tea, index) => (
           <div className='teaCard' key={index}>
             <img className='teaImage' src={tea.image} alt={tea.name} />
             <p className='teaName'>{tea.name}</p>
