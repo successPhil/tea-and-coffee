@@ -4,6 +4,7 @@ import UserContext from './contexts/UserContext';
 import ResponsiveAppBar from './features/AppBar/AppBar';
 import Login from './pages/Login';
 import Tea from './pages/Tea';
+import Coffee from './pages/Coffee';
 import './index.css'
 
 function App() {
@@ -55,13 +56,14 @@ function App() {
 
   return (
     <>
-    <UserContext.Provider value={userToken}>
+    <UserContext.Provider value={{userToken}}>
       <Router>
       <ResponsiveAppBar handleLogout={handleLogout} />
       <h1>Hello Friends</h1>
       <Routes>
       <Route path="/" element={<Login checked={checked} handleOnClick={handleOnClick} handleInputChange={handleInputChange} formData={formData} handleToken={handleToken} token={userToken} signUp={signUp} handleSignUp={handleSignUp}/>} />
       <Route path="tea" element={<Tea/>}/>
+      <Route path="coffee" element={<Coffee/>}/>
       </Routes>
       </Router>
       

@@ -34,3 +34,5 @@ async function basicFetch(url, payload) {
     const body = await basicFetch(`${API_BASE_URL}/login/get-token`, payload)
     return body.token
   }
+
+  
