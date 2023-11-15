@@ -1,4 +1,4 @@
-import TeaCarousel from "../components/TeaCarousel";
+import TeaCarousel from "../components/TeaNavigation/TeaCarousel";
 
 export default function Tea(){
     return (

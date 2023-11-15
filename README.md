@@ -8,4 +8,4 @@ I inserted temporary dummy data at ./assets/TeaData.js
 
 - Compile Coffee Data
 
-- 
+- added response messages for login/ singup. Css'd login Signup. Created Tea viewing pages. - T. Kendall

@@ -5,6 +5,8 @@ import ResponsiveAppBar from './features/AppBar/AppBar';
 import Login from './pages/Login';
 import Tea from './pages/Tea';
 import './index.css'
+import Footer from './components/TeaNavigation/Footer';
+
 
 function App() {
 
@@ -25,8 +27,10 @@ function App() {
   const handleToken = (token) => {
     console.log("handleToken")
     setFormData({ username: '', password: '' })
-    localStorage.setItem("token", token)
-    setUserToken(token)
+    if (token) {
+      localStorage.setItem("token", token)
+      setUserToken(token)
+    }
   }
   
   const handleInputChange = (e) => {
@@ -37,8 +41,8 @@ function App() {
     });
   };
 
-  const handleOnClick = (prev) => {
-    setChecked(!prev);
+  const handleOnClick = () => {
+    setChecked(!checked);
   }
 
   const handleSignUp = () => {
@@ -57,12 +61,14 @@ function App() {
     <>
     <UserContext.Provider value={userToken}>
       <Router>
-      <ResponsiveAppBar handleLogout={handleLogout} />
-      <h1>Hello Friends</h1>
-      <Routes>
-      <Route path="/" element={<Login checked={checked} handleOnClick={handleOnClick} handleInputChange={handleInputChange} formData={formData} handleToken={handleToken} token={userToken} signUp={signUp} handleSignUp={handleSignUp}/>} />
-      <Route path="tea" element={<Tea/>}/>
-      </Routes>
+        {userToken && (<ResponsiveAppBar handleLogout={handleLogout} />)}
+        <div className='body'>
+        <Routes>
+          <Route path="/" element={<Login setChecked={setChecked} checked={checked} handleOnClick={handleOnClick} handleInputChange={handleInputChange} formData={formData} handleToken={handleToken} token={userToken} signUp={signUp} handleSignUp={handleSignUp}/>} />
+          <Route path="tea" element={<Tea/>}/>
+        </Routes>
+        </div>
+        {userToken && (<Footer />)}
       </Router>
       
       </UserContext.Provider>
