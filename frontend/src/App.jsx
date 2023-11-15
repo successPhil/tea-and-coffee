@@ -4,6 +4,7 @@ import UserContext from './contexts/UserContext';
 import ResponsiveAppBar from './features/AppBar/AppBar';
 import Login from './pages/Login';
 import Tea from './pages/Tea';
+import Coffee from './pages/Coffee';
 import './index.css'
 import Footer from './components/TeaNavigation/Footer';
 
@@ -59,14 +60,15 @@ function App() {
 
   return (
     <>
-    <UserContext.Provider value={userToken}>
+    <UserContext.Provider value={{userToken}}>
       <Router>
         {userToken && (<ResponsiveAppBar handleLogout={handleLogout} />)}
         <div className='body'>
         <Routes>
           <Route path="/" element={<Login setChecked={setChecked} checked={checked} handleOnClick={handleOnClick} handleInputChange={handleInputChange} formData={formData} handleToken={handleToken} token={userToken} signUp={signUp} handleSignUp={handleSignUp}/>} />
           <Route path="tea" element={<Tea/>}/>
-        </Routes>
+          <Route path="coffee" element={<Coffee/>}/>
+      </Routes>
         </div>
         {userToken && (<Footer />)}
       </Router>
