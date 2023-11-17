@@ -1,4 +1,5 @@
 env_virtual
 venv
-*.env
+.env
 __pycache__/
+docker-compose.yml
