@@ -3,4 +3,9 @@ body {
     padding: 0;
 }
 
+.body {
+    min-height: 92vh;
+    border: 3px solid red;
+}
 
+ 
