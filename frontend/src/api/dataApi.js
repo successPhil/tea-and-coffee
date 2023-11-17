@@ -20,7 +20,7 @@ export async function teaFetch() {
         },
     }
 
-    const body = await basicFetch(`${API_BASE_URL}/v1/teas`, payload);
+    const body = await basicFetch(`${API_BASE_URL}/v1/all-teas`, payload);
     return body;
 }
 

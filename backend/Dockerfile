@@ -11,11 +11,12 @@ RUN pip install -r requirements.txt
 
 # need to pass in API key?
 
-# ENV SECRET_KEY=abc123
-# ENV DEBUG=True
-# ENV DB_NAME=cars_db
-# ENV DB_USER=postgres
-# ENV DB_PASS=postgres
+ENV SECRET_KEY=abc123
+ENV DEBUG=True
+ENV DB_NAME=teatime_db
+ENV DB_USER=postgres
+ENV DB_PASS=postgres
+
 
 COPY . .
 
