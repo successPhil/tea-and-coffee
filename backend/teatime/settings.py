@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'users',
     'tea_api',
     'coffee_api',
+    'coffee_reviews',
     'rest_framework',
     'rest_framework.authtoken',
 ]

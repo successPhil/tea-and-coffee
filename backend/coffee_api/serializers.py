@@ -1,10 +1,12 @@
 from rest_framework import serializers
 from .models import Coffee
+from coffee_reviews.serializers import ReviewSerializer
 
 class CoffeeSerializer(serializers.ModelSerializer):
+    reviews = ReviewSerializer(many=True, read_only=True)
     class Meta:
         model = Coffee
-        fields = ['name', 'description', 'picture']
+        fields = ['name', 'description', 'picture', 'caffeine', 'rating', 'reviews']
 
     def create(self, validated_data):
         # Custom validation logic goes here
