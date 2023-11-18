@@ -13,3 +13,4 @@ COMPOSE_DOCKER_CLI_BUILD=0 DOCKER_BUILDKIT=0 docker compose -f docker-compose.de
 sleep 10
 docker exec tea-and-coffee-api-1 python /src/manage.py makemigrations 
 docker exec tea-and-coffee-api-1  python /src/manage.py migrate
+docker exec tea-and-coffee-api-1  python /src/manage.py loaddata coffee
