@@ -20,5 +20,8 @@ docker-compose -f docker-compose.prod.yml up -d
 # make sure the postgres container is ready, then run migrations
 sleep 10 
 docker exec tea-and-coffee-api-1 python /src/manage.py makemigrations 
+
 docker exec tea-and-coffee-api-1 python /src/manage.py migrate
 docker exec tea-and-coffee-api-1  python /src/manage.py loaddata coffee
+docker exec tea-and-coffee-api-1 python /src/manage.py migrate
+
