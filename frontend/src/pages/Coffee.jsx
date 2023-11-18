@@ -28,7 +28,7 @@ export default function Coffee() {
             return (
                 <div key={capitalizeWords(coffee.name)} className="coffee-card">
                     <div className="coffee-header-image">
-                        <h1>{coffee.name}</h1>
+                        <h1>{capitalizeWords(coffee.name)}</h1>
                         <img className="coffee-thumbnail" src={coffee.picture}/>
                     </div>
                     <div className="coffee-interactive-info">
