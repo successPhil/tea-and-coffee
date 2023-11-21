@@ -6,7 +6,7 @@ class CoffeeSerializer(serializers.ModelSerializer):
     reviews = ReviewSerializer(many=True, read_only=True)
     class Meta:
         model = Coffee
-        fields = ['name', 'description', 'picture', 'caffeine', 'rating', 'reviews']
+        fields = '__all__'
 
     def create(self, validated_data):
         # Custom validation logic goes here
