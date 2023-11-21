@@ -3,6 +3,13 @@ body {
     padding: 0;
 }
 
+@font-face {
+    font-family: 'Montserrat-Regular';
+    src: url('fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
 .body {
     min-height: 92.5vh;
 }
@@ -135,4 +142,28 @@ body {
     margin-top: 20px;
     justify-content: center;
     display: flex;
+}
+
+.profile-logo {
+    height: 200px;
+    width: 200px;
+}
+
+.company-about {
+    font-size: 2rem;
+    font-family:'Montserrat-Regular', sans-serif;
+}
+
+.main-content {
+    font-size: 2rem;
+    font-family:'Montserrat-Regular', sans-serif;
+}
+.main-content-image {
+    width: 420px;
+}
+
+.main-content-image-container {
+    display: flex;
+    flex-direction:row;
+    justify-content: space-around;
 }

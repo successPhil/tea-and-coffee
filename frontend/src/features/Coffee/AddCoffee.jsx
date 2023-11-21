@@ -33,7 +33,8 @@ export default function AddCoffee(){
     
 
     const addCoffee = async (coffeeObj) => {
-        const base_url = import.meta.env.VITE_BASE_URL
+        // const base_url = import.meta.env.VITE_BASE_URL
+        const base_url = "localhost:8000"
         const url = `http://${base_url}/api/v1/coffee/`
         let formData = new FormData()
         formData.append("name", coffeeObj.name)
