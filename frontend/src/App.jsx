@@ -8,6 +8,7 @@ import Coffee from './pages/Coffee';
 import './index.css'
 import Footer from './components/TeaNavigation/Footer';
 import Home from './pages/Home';
+import About from './pages/About';
 
 
 function App() {
@@ -70,6 +71,7 @@ function App() {
           <Route path="tea" element={<Tea/>}/>
           <Route path="coffee" element={<Coffee/>}/>
           <Route path="home" element={<Home/>}/>
+          <Route path="about" element={<About/>}/>
       </Routes>
         </div>
         {userToken && (<Footer />)}
