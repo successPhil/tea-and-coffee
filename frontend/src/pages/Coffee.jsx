@@ -1,15 +1,22 @@
-import { coffeeFetch } from "../api/dataApi"
+import { coffeeFetch, addCoffeeReview } from "../api/dataApi"
 import { useEffect, useState } from "react"
 import Rating from '@mui/material/Rating';
-
 import AddCoffee from "../features/Coffee/AddCoffee"
+import AddReview from "../features/Coffee/AddReview";
 
 export default function Coffee() {
     const [ coffees, setCoffees ] = useState([])
     const [ addCoffeeForm, setAddCoffeeForm ] = useState(false)
+    const [ addReviewForm, setAddReviewForm ] = useState(false)
+    const [selectedCoffeeId, setSelectedCoffeeId] = useState(null);
 
     const handleAddCoffee = () => {
         setAddCoffeeForm(true)
+    }
+
+    const handleAddReview = (coffeeId) => {
+        setSelectedCoffeeId(coffeeId)
+        setAddReviewForm(true)
     }
 
     useEffect(() => {
@@ -38,7 +45,8 @@ export default function Coffee() {
                             <h4>Caffeine - {coffee.caffeine}mg/Serving</h4>
                             <h4>Recipe</h4>
                             <h4>See Reviews</h4>
-                            <h4> + Add Review</h4>
+                            <button onClick={()=> handleAddReview(coffee.id)}>Add Review</button>
+                            
                         </div>
                     </div>
                 </div>
@@ -62,6 +70,8 @@ export default function Coffee() {
 
     {coffees && createCoffeeList()}
     {addCoffeeForm && <AddCoffee/>}
+    {addReviewForm && selectedCoffeeId && <AddReview coffeeId={selectedCoffeeId} />}
+   
 
     </>)
 }
