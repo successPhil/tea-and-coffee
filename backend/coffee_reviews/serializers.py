@@ -13,7 +13,7 @@ class ReviewSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Review
-        fields = ['user', 'text', 'rating', 'liked_by']
+        fields = ['pk', 'user', 'text', 'rating', 'liked_by']
 
     def create(self, validated_data):
         # Custom validation logic goes here

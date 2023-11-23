@@ -1,12 +1,16 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework import status
 from coffee_api.models import Coffee
 from coffee_api.serializers import CoffeeSerializer
+from coffee_reviews.models import Review
+from coffee_reviews.serializers import ReviewSerializer
 
 class CoffeeReview(APIView):
     def post(self, request):
         review_data = request.data  # Assuming the data contains the necessary fields for a review
         user = request.user
+        print(request)
         print(user, 'CHECKING USER')
         print(review_data, 'THIS IS REVIEW DATA')
         coffee_id = review_data.get('coffee_id')  # Assuming there's a field in the data to identify the coffee
@@ -28,3 +32,31 @@ class CoffeeReview(APIView):
         serializer = CoffeeSerializer(coffee)
         
         return Response(serializer.data)
+
+    def put(self, request):
+        print('first')
+        review_data = request.data
+        print('requestdata', request.data)
+
+        pk = review_data.get('pk')
+        review = Review.objects.get(pk=pk)
+
+        review.text = review_data.get('text')
+        review.rating = review_data.get('rating')
+        review.save()
+
+        serializer = ReviewSerializer(review)
+        
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
+    def delete(self, request):
+        review_data = request.data
+        pk = review_data.get('pk')
+        review = Review.objects.get(pk=pk)
+        review.delete()
+        coffee_id = review_data.get('coffee_id')
+        coffee = Coffee.objects.get(pk=coffee_id)
+        coffee.update_rating()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+
