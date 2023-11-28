@@ -1,6 +1,68 @@
+.Coffee_Monochromatic-1-hex { color: #3D322B; }
+.Coffee_Monochromatic-2-hex { color: #D6CAC1; }
+.Coffee_Monochromatic-3-hex { color: #704F38; }
+.Coffee_Monochromatic-4-hex { color: #FFD2B3; }
+.Coffee_Monochromatic-5-hex { color: #FFB580; }
+
+/* Color Theme Swatches in RGBA */
+.Coffee_Monochromatic-1-rgba { color: rgba(61, 50, 43, 1); }
+.Coffee_Monochromatic-2-rgba { color: rgba(214, 202, 193, 1); }
+.Coffee_Monochromatic-3-rgba { color: rgba(112, 79, 56, 1); }
+.Coffee_Monochromatic-4-rgba { color: rgba(255, 210, 179, 1); }
+.Coffee_Monochromatic-5-rgba { color: rgba(255, 181, 128, 1); }
+
+/* Color Theme Swatches in HSLA */
+.Coffee_Monochromatic-1-hsla { color: hsla(23, 17, 20, 1); }
+.Coffee_Monochromatic-2-hsla { color: hsla(25, 20, 79, 1); }
+.Coffee_Monochromatic-3-hsla { color: hsla(24, 33, 32, 1); }
+.Coffee_Monochromatic-4-hsla { color: hsla(24, 100, 85, 1); }
+.Coffee_Monochromatic-5-hsla { color: hsla(25, 100, 75, 1); }
+
+.Coffee_Complementary-1-hex { color: #386C70; }
+.Coffee_Complementary-2-hex { color: #B09684; }
+.Coffee_Complementary-3-hex { color: #704F38; }
+.Coffee_Complementary-4-hex { color: #A3C2C4; }
+.Coffee_Complementary-5-hex { color: #F0D4C0; }
+
+/* Color Theme Swatches in RGBA */
+.Coffee_Complementary-1-rgba { color: rgba(56, 108, 112, 1); }
+.Coffee_Complementary-2-rgba { color: rgba(176, 150, 132, 1); }
+.Coffee_Complementary-3-rgba { color: rgba(112, 79, 56, 1); }
+.Coffee_Complementary-4-rgba { color: rgba(163, 194, 196, 1); }
+.Coffee_Complementary-5-rgba { color: rgba(240, 212, 192, 1); }
+
+/* Color Theme Swatches in HSLA */
+.Coffee_Complementary-1-hsla { color: hsla(184, 33, 32, 1); }
+.Coffee_Complementary-2-hsla { color: hsla(24, 21, 60, 1); }
+.Coffee_Complementary-3-hsla { color: hsla(24, 33, 32, 1); }
+.Coffee_Complementary-4-hsla { color: hsla(183, 21, 70, 1); }
+.Coffee_Complementary-5-hsla { color: hsla(25, 61, 84, 1); }
+
+/* Color Theme Swatches in Hex */
+.Coffee_Shades-1-hex { color: #4D3626; }
+.Coffee_Shades-2-hex { color: #F0AA78; }
+.Coffee_Shades-3-hex { color: #704F38; }
+.Coffee_Shades-4-hex { color: #C78D63; }
+.Coffee_Shades-5-hex { color: #9E704F; }
+
+/* Color Theme Swatches in RGBA */
+.Coffee_Shades-1-rgba { color: rgba(77, 54, 38, 1); }
+.Coffee_Shades-2-rgba { color: rgba(240, 170, 120, 1); }
+.Coffee_Shades-3-rgba { color: rgba(112, 79, 56, 1); }
+.Coffee_Shades-4-rgba { color: rgba(199, 141, 99, 1); }
+.Coffee_Shades-5-rgba { color: rgba(158, 112, 79, 1); }
+
+/* Color Theme Swatches in HSLA */
+.Coffee_Shades-1-hsla { color: hsla(24, 33, 22, 1); }
+.Coffee_Shades-2-hsla { color: hsla(24, 80, 70, 1); }
+.Coffee_Shades-3-hsla { color: hsla(24, 33, 32, 1); }
+.Coffee_Shades-4-hsla { color: hsla(25, 47, 58, 1); }
+.Coffee_Shades-5-hsla { color: hsla(25, 33, 46, 1); }
+
 body {
     margin: 0;
     padding: 0;
+    background-color: rgba(214, 202, 193, 1);
 }
 
 @font-face {
@@ -8,6 +70,7 @@ body {
     src: url('fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+    color: rgba(112, 79, 56, 1);
   }
 
 .body {
@@ -20,7 +83,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(61, 50, 43, 0.5);
   }
   
 .modal-content {
@@ -28,11 +91,11 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: white;
+    background: rgba(255, 210, 179, 1);
     padding: 20px;
     border-radius: 8px;
     width: 20%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 10px rgba(77, 54, 38, 0.3);
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
@@ -43,7 +106,7 @@ body {
     display: flex;
     text-align: center;
     margin-bottom: 15px;
-    border-bottom: 2px dotted black;
+    border-bottom: 2px dotted rgba(77, 54, 38, 1);
     padding-bottom: 10px;
 }
 
@@ -60,7 +123,7 @@ body {
 .input-description {
     border-radius: 1px;
     height: 20px;
-    box-shadow: rgba(0, 0, 0, 0.379);
+    box-shadow: rgba(77, 54, 38, 0.379);
 }
 
 .input-description:focus {
@@ -86,7 +149,7 @@ body {
     grid-template-columns: 1fr 6fr;
     gap: 20px;
     margin-inline: 20%;
-    border: 1px solid black;
+    border: 1px solid rgba(61, 50, 43, 1);
     border-radius: 30px;
     padding: 10px;
     margin-top: 30px
