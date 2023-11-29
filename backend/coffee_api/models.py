@@ -26,7 +26,11 @@ class Coffee(models.Model):
             self.rating = round(avg_rating, 2)
             self.save()
 
-    
+    def update_rating(self):
+        avg_rating = self.reviews.aggregate(Avg('rating'))['rating__avg']
+        if avg_rating is not None:
+            self.rating = round(avg_rating, 2)
+            self.save()
 
     @property
     def reviews(self):
