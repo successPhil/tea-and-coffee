@@ -1,8 +1,8 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect, useRef } from "react";
 import UserContext from "../../contexts/UserContext";
 import { useNavigate } from "react-router-dom"
 
-export default function AddCoffee(){
+export default function AddCoffee({handleAddCoffee}){
     const navigate = useNavigate()
     const { userToken } = useContext(UserContext)
     const [ coffeeName , setCoffeeName ] = useState()
@@ -11,6 +11,8 @@ export default function AddCoffee(){
     const [ caffeine, setCaffeine ] = useState()
     const [ rating, setRating ] = useState()
     const [errors, setErrors ] = useState()
+
+    const addCoffeeFormRef = useRef(null)
 
     const handleCoffeeNameChange = (e) => setCoffeeName(e.target.value)
     const handleDescriptionChange = (e) => setDescription(e.target.value)
@@ -54,52 +56,60 @@ export default function AddCoffee(){
         if (response.status === 400) {
             setErrors(body)
         } else {
-            navigate("/")
+            // navigate("/")
         }
     }
     
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            // Check if the clicked element is NOT a child of the container
+            if (
+                addCoffeeFormRef.current &&
+                !addCoffeeFormRef.current.contains(event.target) &&
+                // Check if the clicked element is NOT the button that opens the form
+                event.target !== document.querySelector("#add-coffee-button")
+            ) {
+                console.log("Click outside detected");
+                // Run your handler function here
+                handleAddCoffee();
+            }
+        };
+
+        // Attach the event listener to the document
+        document.addEventListener("click", handleClickOutside);
+
+        // Clean up the event listener when the component unmounts
+        return () => {
+            document.removeEventListener("click", handleClickOutside);
+        };
+    }, [handleAddCoffee]);
     
     return (
     <>
     <div className="modal-overlay">
-      <div className="modal-content">
-    <h1>Share your favorite coffee</h1>
-    {errors && <h4>{JSON.stringify(errors)}</h4>}
-
-
-    <div className="share-input">
-        {/* <label htmlFor="coffeeName">Coffee Name:</label> */}
-        <input placeholder='Coffee Name' value={coffeeName} name="coffeeName" onChange={handleCoffeeNameChange}></input>
+        <div className="modal-content" ref={addCoffeeFormRef}>
+        <h1>Share your favorite coffee</h1>
+            {errors && <h4>{JSON.stringify(errors)}</h4>}
+            <div className="share-input">
+                <input placeholder='Coffee Name' value={coffeeName} name="coffeeName" onChange={handleCoffeeNameChange}></input>
+            </div>
+            <div className="share-input">
+                <textarea className='input-description' placeholder='Description' value={description} name="description" onChange={handleDescriptionChange}></textarea>
+            </div>
+            <div className="share-input">
+                <input placeholder='Caffeine Content: mg/serving' value={caffeine} name="caffeine" onChange={handleCaffeineChange}></input>
+            </div>
+            <div className="share-input">
+                <input placeholder='Rating' value={rating} name="rating" onChange={handleRatingChange}></input>
+            </div>
+            <div className="share-input">
+                <input type="file" name="coffeeImage" onChange={handlePictureChange}></input>
+            </div>
+            <div className="share-submit">
+                <button className='share-button' onClick={handleSubmit}>Submit</button>
+            </div>
+        </div>
     </div>
-
-    <div className="share-input">
-        {/* <label htmlFor="description">Description:</label> */}
-        <textarea className='input-description' placeholder='Description' value={description} name="description" onChange={handleDescriptionChange}></textarea>
-    </div>
-
-    <div className="share-input">
-        {/* <label htmlFor="caffeine">Caffeine:</label> */}
-        <input placeholder='Caffeine Content: mg/serving' value={caffeine} name="caffeine" onChange={handleCaffeineChange}></input>
-    </div>
-
-    <div className="share-input">
-        {/* <label htmlFor="rating">Rating:</label> */}
-        <input placeholder='Rating' value={rating} name="rating" onChange={handleRatingChange}></input>
-    </div>
-
-    <div className="share-input">
-        {/* <label htmlFor="coffeeImage">Coffee Image: </label> */}
-        <input type="file" name="coffeeImage" onChange={handlePictureChange}></input>
-    </div>
-    
-    <div className="share-submit">
-    <button className='share-button' onClick={handleSubmit}>Submit</button>
-    </div>
-     
-    </div>
-    </div>
-    
-    
-    
-    </>)
+    </>
+    )
 }
