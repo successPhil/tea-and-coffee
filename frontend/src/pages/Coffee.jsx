@@ -1,9 +1,10 @@
 import { coffeeFetch, addCoffeeReview } from "../api/dataApi"
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import Rating from '@mui/material/Rating';
 import SeeReview from '../features/Coffee/SeeReview'
 import AddCoffee from "../features/Coffee/AddCoffee"
 import AddReview from "../features/Coffee/AddReview";
+
 
 export default function Coffee() {
     const [ coffees, setCoffees ] = useState([])
@@ -12,9 +13,15 @@ export default function Coffee() {
     const [ addReviewForm, setAddReviewForm ] = useState(false)
     const [selectedCoffeeId, setSelectedCoffeeId] = useState(null);
 
+    // const addCoffeeFormRef = useRef(null)
+
     const handleAddCoffee = () => {
-        setAddCoffeeForm(true)
+        console.log("Toggling addCoffeeForm");
+        console.log(addCoffeeForm)
+        setAddCoffeeForm(!addCoffeeForm)
     }
+
+    console.log('rendering coffee')
 
     const handleAddReview = (coffeeId) => {
         setSelectedCoffeeId(coffeeId)
@@ -24,6 +31,7 @@ export default function Coffee() {
     useEffect(() => {
         getCoffeeData()
     }, [])
+
 
     const capitalizeWords = (str) => {
         return str
@@ -53,11 +61,11 @@ export default function Coffee() {
                         <div className="coffee-interactive-info">
                             <p>{coffee.description}</p>
                             <div className="interactive-footer">
-                                <h4>{coffee.rating}<Rating name="read-only" value={coffee.rating} readOnly/></h4>
+                                <h4>{coffee.rating}<Rating name="read-only" value={coffee.rating}readOnly/></h4>
                                 <h4>Caffeine - {coffee.caffeine}mg/Serving</h4>
                                 <h4>Recipe</h4>
                                 <h4 onClick={() => handleViewReviews(index)}> {index == openReviewIndex ? 'Close Reviews' : 'See Reviews'}</h4>
-                                <button onClick={()=> handleAddReview(coffee.id)}>Add Review</button>
+                                <h4 onClick={()=> handleAddReview(coffee.id)}>Add Review</h4>
                             </div>
                         </div>
                     </div>
@@ -72,17 +80,15 @@ export default function Coffee() {
         setCoffees(fetchedCoffees)
     }
 
-    console.log(coffees)
-    
     return (
     <>
     <div className="add-a-coffee">
         <h2>Take A Gander at our premium coffees. If what you want is not here, Add it! </h2>
-        <button onClick={handleAddCoffee}>add coffee</button>
+        <button id="add-coffee-button" onClick={handleAddCoffee}>add coffee</button>
     </div>
 
     {coffees && createCoffeeList()}
-    {addCoffeeForm && <AddCoffee/>}
+    {addCoffeeForm && <AddCoffee handleAddCoffee={handleAddCoffee}/>}
     {addReviewForm && selectedCoffeeId && <AddReview coffeeId={selectedCoffeeId} />}
    
 
