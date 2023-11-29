@@ -23,4 +23,6 @@ urlpatterns = [
     path('api/v1/', include('tea_api.urls')),
     path('api/v1/coffee/', include('coffee_api.urls')),
     path('api/v1/coffee/review/', include('coffee_reviews.urls')),
+    path('api/v1/coffee/likes/', include('coffee_reviews.urls')),
+    path('api/v1/coffee/favorites/', include('users.urls')),
 ]

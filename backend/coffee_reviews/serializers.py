@@ -9,11 +9,11 @@ class UserSerializer(serializers.ModelSerializer):
 
 class ReviewSerializer(serializers.ModelSerializer):
     user = UserSerializer(read_only=True)  # Nested serializer for 'user' field
-    liked_by = UserSerializer(many=True, read_only=True)  # Nested serializer for 'liked_by' field
+    liked_by = serializers.StringRelatedField(many=True, read_only=True)
 
     class Meta:
         model = Review
-        fields = ['pk', 'user', 'text', 'rating', 'liked_by']
+        fields = '__all__'
 
     def create(self, validated_data):
         # Custom validation logic goes here

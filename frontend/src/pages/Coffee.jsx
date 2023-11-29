@@ -51,6 +51,7 @@ export default function Coffee() {
     const createCoffeeList = () => {
         return coffees.map( (coffee, index) => {
             return (
+
                 <>
                     <div key={index} className="coffee-card">
                         <div className="coffee-header-image">

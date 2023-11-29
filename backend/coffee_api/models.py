@@ -17,6 +17,7 @@ class Coffee(models.Model):
     
     def add_review(self, username, text, rating):
         # Create a new Review instance and associate it with the Coffee
+        print(username, 'USERNAME IN ADD REVIEW METHOD')
         review = Review.objects.create(coffee=self, user=User.objects.get(username=username), text=text, rating=rating)
 
         # Update the average rating of the Coffee based on all reviews
