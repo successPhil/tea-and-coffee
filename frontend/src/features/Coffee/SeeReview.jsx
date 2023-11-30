@@ -14,7 +14,7 @@ export default function SeeReview({coffee}) {
             {coffee.reviews.map(( review, index ) => (
                 <>
                     <div key={index}>{review.user.username}</div>
-                    <p key={index}>{review.text}</p>
+                    <p>{review.text}</p>
                 </>
             ))}
         </div>

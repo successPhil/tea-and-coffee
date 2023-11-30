@@ -30,6 +30,7 @@ export default function AddCoffee({handleAddCoffee}){
             rating: rating
         }
         addCoffee(coffeeObject)
+        handleAddCoffee()
     }
 
     
