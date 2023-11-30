@@ -4,6 +4,7 @@ import Rating from '@mui/material/Rating';
 import SeeReview from '../features/Coffee/SeeReview'
 import AddCoffee from "../features/Coffee/AddCoffee"
 import AddReview from "../features/Coffee/AddReview";
+import EditReview from "../features/Coffee/EditReview";
 
 
 export default function Coffee() {
@@ -11,26 +12,35 @@ export default function Coffee() {
     const [ addCoffeeForm, setAddCoffeeForm ] = useState(false)
     const [ openReviewIndex, setOpenReviewIndex] = useState (null)
     const [ addReviewForm, setAddReviewForm ] = useState(false)
+    const [ editReviewForm, setEditReviewForm ] = useState(false)
     const [selectedCoffeeId, setSelectedCoffeeId] = useState(null);
+    const [selectedUserReview, setSelectedUserReview] = useState(null)
+    const [currentUser, setCurrentUser] = useState(null)
 
-    // const addCoffeeFormRef = useRef(null)
+    // const currentUser = localStorage.getItem("username")
 
     const handleAddCoffee = () => {
-        console.log("Toggling addCoffeeForm");
-        console.log(addCoffeeForm)
         setAddCoffeeForm(!addCoffeeForm)
     }
-
     console.log('rendering coffee')
 
     const handleAddReview = (coffeeId) => {
+        console.log("Toggling addReviewForm");
         setSelectedCoffeeId(coffeeId)
-        setAddReviewForm(true)
+        setAddReviewForm(!addReviewForm)
+    }
+
+    const handleEditReview = (coffeeId, userReview) => {
+        setSelectedCoffeeId(coffeeId)
+        setSelectedUserReview(userReview)
+        setEditReviewForm(!editReviewForm)
     }
 
     useEffect(() => {
         getCoffeeData()
-    }, [])
+        const username = localStorage.getItem("username")
+        setCurrentUser(username)
+    }, [editReviewForm, addReviewForm])
 
 
     const capitalizeWords = (str) => {
@@ -50,10 +60,16 @@ export default function Coffee() {
 
     const createCoffeeList = () => {
         return coffees.map( (coffee, index) => {
+            const userReview = coffee.reviews.find(review => review.user.username === currentUser)
+            const hasUserReview = !!userReview
+
+            const buttonHandler = hasUserReview ? () => handleEditReview(coffee.id, userReview) : () => handleAddReview(coffee.id)
+            const buttonId = hasUserReview ? 'edit-review-button' : 'add-review-button'
+
             return (
 
-                <>
-                    <div key={index} className="coffee-card">
+                <div key={index}>
+                    <div className="coffee-card">
                         <div className="coffee-header-image">
                             <h1>{capitalizeWords(coffee.name)}</h1>
                             <img className="coffee-thumbnail" src={coffee.picture}/>
@@ -65,12 +81,14 @@ export default function Coffee() {
                                 <h4>Caffeine - {coffee.caffeine}mg/Serving</h4>
                                 <h4>Recipe</h4>
                                 <h4 onClick={() => handleViewReviews(index)}> {index == openReviewIndex ? 'Close Reviews' : 'See Reviews'}</h4>
-                                <h4 onClick={()=> handleAddReview(coffee.id)}>Add Review</h4>
+                                <h4 id={buttonId} onClick={buttonHandler}>
+                                    {hasUserReview ? 'Edit Review' : 'Add Review'}
+                                </h4>
                             </div>
                         </div>
                     </div>
                 {openReviewIndex == index && (<SeeReview coffee={coffees[openReviewIndex]}/>)}
-                </>
+                </div>
                 )
             })
         }
@@ -89,7 +107,8 @@ export default function Coffee() {
 
     {coffees && createCoffeeList()}
     {addCoffeeForm && <AddCoffee handleAddCoffee={handleAddCoffee}/>}
-    {addReviewForm && selectedCoffeeId && <AddReview coffeeId={selectedCoffeeId} />}
+    {addReviewForm && <AddReview handleAddReview={handleAddReview} coffeeId={selectedCoffeeId} />}
+    {editReviewForm && <EditReview handleEditReview={handleEditReview} coffeeId={selectedCoffeeId} selectedUserReview={selectedUserReview} editReviewForm={editReviewForm}/>}
    
 
     </>)

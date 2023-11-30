@@ -27,11 +27,12 @@ function App() {
     }
 
   }, [])
-  const handleToken = (token) => {
+  const handleToken = (token, username) => {
     console.log("handleToken")
     setFormData({ username: '', password: '' })
     if (token) {
       localStorage.setItem("token", token)
+      localStorage.setItem('username', username)
       setUserToken(token)
     }
   }
@@ -54,7 +55,9 @@ function App() {
 
   const handleLogout = () => {
     var keyToRemove = 'token';
+    var usernameKeyToRemove = 'username';
   localStorage.removeItem(keyToRemove);
+  localStorage.removeItem(usernameKeyToRemove)
   setUserToken(false)
   setSignUp(false)
   }
