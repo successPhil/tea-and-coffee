@@ -34,7 +34,7 @@ class CoffeeReview(APIView):
         
         return Response(serializer.data)
       
-      def put(self, request):
+    def put(self, request):
         print('first')
         review_data = request.data
         print('requestdata', request.data)

@@ -54,3 +54,20 @@ export async function addCoffeeReview(reviewData) {
     console.log(body, 'AFTER FETCH')
     return body;
   }
+
+export async function editCoffeeReview(reviewData) {
+    const userToken = localStorage.getItem('token');
+    console.log('function called')
+    console.log('Checking review data in function: ', reviewData)
+    const payload = {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `token ${userToken}`,
+      },
+      body: JSON.stringify(reviewData),
+    };
+    const body = await basicFetch(`${API_BASE_URL}/v1/coffee/review/`, payload);
+    console.log(body, 'AFTER FETCH')
+    return body;
+  }

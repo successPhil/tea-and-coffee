@@ -22,6 +22,7 @@ export default function Login({setChecked, handleInputChange, handleToken, handl
                 handleOnClick(checked)
           } else {
               const data = new FormData(event.currentTarget);
+              // const username = data.get('username')
               const context = {
                   username: data.get('username'),
                   password: data.get('password'),
@@ -30,7 +31,7 @@ export default function Login({setChecked, handleInputChange, handleToken, handl
                 if (tokenData.error) {
                   setResponseMsg(tokenData.body)
                 } else {
-                  handleToken(tokenData.body)    
+                  handleToken(tokenData.body, data.get('username'))    
                 }
           }
       };
