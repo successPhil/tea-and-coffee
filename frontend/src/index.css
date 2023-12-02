@@ -23,6 +23,16 @@ body {
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
   }
+
+  .modal-favorites {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index:1;
+  }
   
 .modal-content {
     position: fixed;
@@ -224,4 +234,28 @@ body {
     padding: 10px;
     margin: 10px;
     background-color: white;
+}
+
+.caffeine-typography {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-menu-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.contact-form {
+    margin-left: 250px;
+    text-align: center;
+    max-width: 86%;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+.contact-title {
+    color: #362417;
+    font-size: 4.5rem;
 }

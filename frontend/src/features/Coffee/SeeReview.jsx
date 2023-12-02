@@ -1,7 +1,12 @@
 import '../../components/css/CoffeeReviews.css'
+import LikeButton from './LikeButton'
+
 
 
 export default function SeeReview({coffee}) {
+    console.log(coffee, 'this is what we start with')
+    console.log(coffee.reviews, 'THESE SHOULD BE OUR REVIEWS')
+    
 
 
     return (
@@ -13,6 +18,7 @@ export default function SeeReview({coffee}) {
                 <div key={index} className='review-container'>
                     <h2>{review.user.username}</h2>
                     <p>{review.text}</p>
+                    <LikeButton review={review} isLiked={review.liked_by.some(username => username === localStorage.getItem('username'))}/>
                 </div>
             ))}
         </div>
