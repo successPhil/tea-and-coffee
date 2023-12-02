@@ -1,3 +1,7 @@
+img {
+    width: 100%;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -266,7 +270,8 @@ body {
 .contact-title {
     color: #362417;
     font-size: 4.5rem;
-.add-a-coffee {
+
+  .add-a-coffee {
     width: 50%;
     margin: 0;
     margin-inline: auto;

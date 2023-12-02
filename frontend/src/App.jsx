@@ -9,6 +9,7 @@ import './index.css'
 import Footer from './components/TeaNavigation/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
+import Documentation from './pages/Documentation';
 import Profile from './pages/Profile';
 import { userDataFetch } from './api/dataApi';
 import Contacts from './pages/Contacts';
@@ -87,6 +88,7 @@ function App() {
           <Route path="coffee" element={<Coffee/>}/>
           <Route path="home" element={<Home/>}/>
           <Route path="about" element={<About/>}/>
+          <Route path='documentation' element={<Documentation />}/>
           <Route path="contacts" element={<Contacts/>}/>
       </Routes>
         </div>

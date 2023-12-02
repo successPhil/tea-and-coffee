@@ -11,8 +11,7 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 import AutoAwesomeOutlinedIcon from '@mui/icons-material/AutoAwesomeOutlined';
 import SearchBar from "../features/AutoFillSearch/SearchBar";
 import SearchIcon from '@mui/icons-material/Search';
-
-
+import '../index.css'
 
 export default function Coffee() {
     const [ coffees, setCoffees ] = useState([])
