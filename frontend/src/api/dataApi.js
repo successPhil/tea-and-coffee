@@ -6,6 +6,9 @@ const API_BASE_URL = `http://127.0.0.1:8000/api`;
 
 async function basicFetch(url, payload) {
     const res = await fetch(url, payload)
+    if (res.status === 204) {
+      return null
+    }
     const body = await res.json()
     return body
 }
@@ -55,6 +58,35 @@ export async function addCoffeeReview(reviewData) {
     return body;
   }
 
+export async function addFavorite(coffeeId) {
+  const userToken = localStorage.getItem('token');
+  const payload = {
+    method: 'POST',
+    headers:{
+      'Content-Type': 'application/json',
+      'Authorization': `token ${userToken}`,
+    },
+    body: JSON.stringify({coffee_id: coffeeId})
+  }
+  const body = await basicFetch(`${API_BASE_URL}/v1/coffee/favorites/users`, payload)
+  return body
+}
+
+export async function removeFavorite(coffeeId) {
+  console.log(coffeeId, 'WHAT ARE WE SENDING')
+  const userToken = localStorage.getItem('token')
+  const payload = {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `token ${userToken}`,
+    },
+    body: JSON.stringify({coffee_id: coffeeId})
+  }
+  await basicFetch(`${API_BASE_URL}/v1/coffee/favorites/users`, payload)
+
+}
+
 export async function editCoffeeReview(reviewData) {
     const userToken = localStorage.getItem('token');
     console.log('function called')
@@ -71,3 +103,18 @@ export async function editCoffeeReview(reviewData) {
     console.log(body, 'AFTER FETCH')
     return body;
   }
+
+// localhost:8000/api/v1/coffee/favorites/users
+export async function userDataFetch() {
+  const userToken = localStorage.getItem('token');
+    const payload = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `token ${userToken}`,
+        },
+    }
+
+    const body = await basicFetch(`${API_BASE_URL}/v1/coffee/favorites/users`, payload);
+    return body;
+}

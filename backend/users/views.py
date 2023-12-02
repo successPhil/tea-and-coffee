@@ -60,15 +60,15 @@ class FavoriteCoffee(APIView):
             return Response({"message": "User not found"}, status=status.HTTP_404_NOT_FOUND)
 
     def delete(self, request):
-        favorite_id = request.data.get('favorite_id')  # Assuming the favorite_id is sent in the request data
+        coffee_id = request.data.get('coffee_id')  # Assuming the favorite_id is sent in the request data
         user = request.user
-        print(favorite_id, 'THIS IS FAV ID')
+        print(coffee_id, 'THIS IS FAV coffee ID')
 
         try:
             app_user = Users.objects.get(user=user)
             print(app_user, 'APP USER IN DELETE')
-            if app_user.remove_favorite(favorite_id):
-                return Response({"message": "Coffee removed from favorites"}, status=status.HTTP_200_OK)
+            if app_user.remove_favorite(coffee_id):
+                return Response({"message": "Coffee removed from favorites"}, status=status.HTTP_204_NO_CONTENT)
             else:
                 return Response({"message": "Favorite not found"}, status=status.HTTP_400_BAD_REQUEST)
 
