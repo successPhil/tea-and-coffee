@@ -5,7 +5,7 @@ import SeeReview from '../features/Coffee/SeeReview'
 import AddCoffee from "../features/Coffee/AddCoffee"
 import AddReview from "../features/Coffee/AddReview";
 import EditReview from "../features/Coffee/EditReview";
-
+import '../index.css'
 
 export default function Coffee() {
     const [ coffees, setCoffees ] = useState([])

@@ -24,6 +24,10 @@ const menuItems = [
     {
       label: 'Contact Us',
       path: 'contact'
+    },
+    {
+      label: 'Documentation',
+      path: 'documentation'
     }
   ];
 

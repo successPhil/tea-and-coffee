@@ -8,7 +8,7 @@ from coffee_reviews.serializers import ReviewSerializer
 
 class CoffeeReview(APIView):
     def get(self, request):
-        reviews = Review.objects.all()
+        reviews = Review.objects.order_by('pk')
         serializer = ReviewSerializer(reviews, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
     
