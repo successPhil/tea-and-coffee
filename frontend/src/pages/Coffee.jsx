@@ -25,14 +25,12 @@ export default function Coffee() {
     const [currentUser, setCurrentUser] = useState(null)
     const [ favorites, setFavorites ] = useState(null)
     const [filteredCoffees, setFilteredCoffees] = useState([])
-    const [searchTerm, setSearchTerm] = useState('')
 
     const handleSearch = (filteredSuggestions) => {
         setFilteredCoffees(filteredSuggestions)
     }
 
     const handleClearSearch = () => {
-        setSearchTerm('')
         setFilteredCoffees([])
     }
 
@@ -149,7 +147,7 @@ export default function Coffee() {
         <button id='add-coffee-button'className="coffee-control-button" onClick={handleAddCoffee}><span className='coffee-control-icon'><AddCircleOutlineOutlinedIcon /></span> New Coffee</button>
         {/* <button className="coffee-control-button"><AutoAwesomeOutlinedIcon /> Suggest a feature</button> */}
         <button className="coffee-control-button"><span className='coffee-control-icon'><AutoAwesomeOutlinedIcon /></span> Suggest a feature</button>
-        <SearchBar state={coffees} setState={setCoffees} searchTerm={searchTerm} setSearchTerm={setSearchTerm} handleSearch={handleSearch} handleClearSearch={handleClearSearch}/>
+        <SearchBar state={coffees} setState={setCoffees} handleSearch={handleSearch} handleClearSearch={handleClearSearch}/>
         </div>
     </div>
 

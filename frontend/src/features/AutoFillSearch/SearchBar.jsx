@@ -4,9 +4,9 @@ import SearchIcon from '@mui/icons-material/Search';
 import { InputAdornment, TextField } from '@mui/material';
 
 
-export default function SearchBar({state, setState, searchTerm, setSearchTerm, handleSearch, handleClearSearch}) {
+export default function SearchBar({state, setState, handleSearch, handleClearSearch}) {
     
-    // const [inputText, setInputText] = useState('');
+    const [searchTerm, setSearchTerm] = useState('');
     const [filteredSuggestions, setFilteredSuggestions] = useState([]);
     const [showSuggestions, setShowSuggestions] = useState(false);
     
@@ -17,6 +17,7 @@ export default function SearchBar({state, setState, searchTerm, setSearchTerm, h
         setSearchTerm(text);
         if (text === '') {
             handleClearSearch()
+
         } else {
             const filtered = state.filter((suggestion) =>
                 suggestion.name.toLowerCase().includes(text.toLowerCase())
