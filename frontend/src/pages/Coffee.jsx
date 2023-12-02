@@ -89,17 +89,18 @@ export default function Coffee() {
                 <div key={index}>
                     <div className="coffee-card">
                         <div className="coffee-header-image">
-                            <h1>{capitalizeWords(coffee.name)}</h1>
                             <img className="coffee-thumbnail" src={coffee.picture}/>
                         </div>
                         <div className="coffee-interactive-info">
+                            <h1>{capitalizeWords(coffee.name)}</h1> 
                             <p>{coffee.description}</p>
                             <div className="interactive-footer">
                                 <h4>{coffee.rating}<Rating name="read-only" value={coffee.rating}readOnly/></h4>
                                 <h4>Caffeine - {coffee.caffeine}mg/Serving</h4>
                                 <FavoriteButton coffee={coffee} isFavorite={isCoffeeFavorite}/>
-                                <h4 onClick={() => handleViewReviews(index)}> {index == openReviewIndex ? 'Close Reviews' : 'See Reviews'}</h4>
-                                <h4 id={buttonId} onClick={buttonHandler}>
+                                <h4 className='interactive-h4' onClick={() => handleViewReviews(index)}> {index == openReviewIndex ? 'Close Reviews' : 'See Reviews'}</h4>
+                                <h4 className='interactive-h4' id={buttonId} onClick={buttonHandler}>
+
                                     {hasUserReview ? 'Edit Review' : 'Add Review'}
                                 </h4>
                             </div>
@@ -117,7 +118,7 @@ export default function Coffee() {
     }
 
     return (
-    <>
+    <div className="coffee-page">
     <div className="add-a-coffee">
         <h2>Take A Gander at our premium coffees. If what you want is not here, Add it! </h2>
         <button id="add-coffee-button" onClick={handleAddCoffee}>add coffee</button>
@@ -129,5 +130,5 @@ export default function Coffee() {
     {editReviewForm && <EditReview handleEditReview={handleEditReview} coffeeId={selectedCoffeeId} selectedUserReview={selectedUserReview} editReviewForm={editReviewForm}/>}
    
 
-    </>)
+    </div>)
 }
