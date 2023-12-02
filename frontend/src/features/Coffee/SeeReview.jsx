@@ -7,15 +7,13 @@ export default function SeeReview({coffee}) {
     return (
         <>
         {coffee.reviews.length !== 0 ?
-        <div className='review-container'>
-            <div className='review-profile-container'>
-                <div className='review-avatar'></div>
-            </div>
+        <div className='reviews-container'>
+            <h1> Reviews </h1>
             {coffee.reviews.map(( review, index ) => (
-                <>
-                    <div key={index}>{review.user.username}</div>
+                <div key={index} className='review-container'>
+                    <h2>{review.user.username}</h2>
                     <p>{review.text}</p>
-                </>
+                </div>
             ))}
         </div>
         :
