@@ -7,7 +7,7 @@ from coffee_reviews.serializers import ReviewSerializer
 
 class CoffeeListView(APIView):
     def get(self, request):
-        coffees = Coffee.objects.all()
+        coffees = Coffee.objects.order_by('pk')
         serializer = CoffeeSerializer(coffees, many=True)
         return Response(serializer.data)
     
