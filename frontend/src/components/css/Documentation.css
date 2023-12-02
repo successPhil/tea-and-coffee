@@ -1,6 +1,7 @@
 body {
   font-family: 'Arial', sans-serif;
 }
+
 .documentationStyle {
   line-height: 1.6;
   margin: 20px;
@@ -9,6 +10,9 @@ body {
   flex-direction: column;
   width: 55%;
   margin-inline: auto;
+  background-color: white;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .headingStyle {
@@ -16,8 +20,51 @@ body {
   margin-bottom: 10px;
 }
 
-.codeBlockStyle {
+.api-peek {
+  /* background-color: #333; */
+  display: flex;
+  margin: 10px;
+  align-items: center;
+  gap: 20px;
+}
+
+.spoiler-button {
+  display: flex;
+  border-radius: 25px;
+  padding: 4px;
+  padding-inline: 9px;
+  align-items: center;
+  gap: 6px;
+}
+
+.api-display {
+  /* position: relative; */
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  border: 1px solid black;
+  padding: 7px;
+  border-radius: 10px;
+  width: 29%;
+}
+
+.hide-key {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  border: 1px solid black;
+  padding: 7px;
+  border-radius: 10px;
+  width: 29%;
+  height: 29px;
+  background-color: rgba(0, 0, 0, 0.412);
+}
+
+.copyButton {
+  border: 0;
+}
+/* .codeBlockStyle {
   background-color: #f5f5f5;
   padding: 10px;
   border-radius: 5px;
-}
+} */
