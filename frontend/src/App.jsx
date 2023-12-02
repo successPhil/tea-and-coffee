@@ -84,7 +84,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Login setChecked={setChecked} checked={checked} handleOnClick={handleOnClick} handleInputChange={handleInputChange} formData={formData} handleToken={handleToken} token={userToken} signUp={signUp} handleSignUp={handleSignUp}/>} />
           <Route path="favorites" element={<Favorites/>}/>
-          <Route path="profile" element={<Profile/>}/>
+          <Route path="profile" element={<Profile getUserData={getUserData}/>}/>
           <Route path="coffee" element={<Coffee/>}/>
           <Route path="home" element={<Home/>}/>
           <Route path="about" element={<About/>}/>

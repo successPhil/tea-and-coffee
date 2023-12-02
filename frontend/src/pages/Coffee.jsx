@@ -155,7 +155,7 @@ export default function Coffee() {
     </div>
 
     {filteredCoffees.length === 0 ? createCoffeeList(coffees) : createCoffeeList(filteredCoffees)}
-    {addCoffeeForm && <AddCoffee handleAddCoffee={handleAddCoffee}/>}
+    {addCoffeeForm && <AddCoffee handleAddCoffee={handleAddCoffee} getCoffeeData={getCoffeeData}/>}
     {addReviewForm && <AddReview handleAddReview={handleAddReview} coffeeId={selectedCoffeeId} />}
     {editReviewForm && <EditReview handleEditReview={handleEditReview} coffeeId={selectedCoffeeId} selectedUserReview={selectedUserReview} editReviewForm={editReviewForm}/>}
    
