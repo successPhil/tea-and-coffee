@@ -3,12 +3,13 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import UserContext from './contexts/UserContext';
 import ResponsiveAppBar from './features/AppBar/AppBar';
 import Login from './pages/Login';
-import Tea from './pages/Tea';
+import Favorites from './pages/Favorites';
 import Coffee from './pages/Coffee';
 import './index.css'
 import Footer from './components/TeaNavigation/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
+
 
 
 function App() {
@@ -71,7 +72,7 @@ function App() {
         <div className='body'>
         <Routes>
           <Route path="/" element={<Login setChecked={setChecked} checked={checked} handleOnClick={handleOnClick} handleInputChange={handleInputChange} formData={formData} handleToken={handleToken} token={userToken} signUp={signUp} handleSignUp={handleSignUp}/>} />
-          <Route path="tea" element={<Tea/>}/>
+          <Route path="favorites" element={<Favorites/>}/>
           <Route path="coffee" element={<Coffee/>}/>
           <Route path="home" element={<Home/>}/>
           <Route path="about" element={<About/>}/>

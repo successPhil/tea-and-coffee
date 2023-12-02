@@ -1,10 +1,12 @@
-import { coffeeFetch, addCoffeeReview } from "../api/dataApi"
-import { useEffect, useState, useRef } from "react"
+import { coffeeFetch, userDataFetch } from "../api/dataApi"
+import { useEffect, useState } from "react"
 import Rating from '@mui/material/Rating';
 import SeeReview from '../features/Coffee/SeeReview'
 import AddCoffee from "../features/Coffee/AddCoffee"
 import AddReview from "../features/Coffee/AddReview";
 import EditReview from "../features/Coffee/EditReview";
+import FavoriteButton from "../features/Coffee/FavoriteButton";
+
 
 
 export default function Coffee() {
@@ -16,8 +18,18 @@ export default function Coffee() {
     const [selectedCoffeeId, setSelectedCoffeeId] = useState(null);
     const [selectedUserReview, setSelectedUserReview] = useState(null)
     const [currentUser, setCurrentUser] = useState(null)
+    const [ favorites, setFavorites ] = useState(null)
+
+    const getUserData = async () => {
+        const fetchedData = await userDataFetch();
+        setFavorites(fetchedData.favorites)
+    }
+
+    console.log(coffees, 'THESE ARE COFFEES')
 
     // const currentUser = localStorage.getItem("username")
+
+    console.log(favorites, 'THIS IS FAVORITES')
 
     const handleAddCoffee = () => {
         setAddCoffeeForm(!addCoffeeForm)
@@ -42,6 +54,10 @@ export default function Coffee() {
         setCurrentUser(username)
     }, [editReviewForm, addReviewForm])
 
+    useEffect(() => {
+        getUserData()
+    }, [])
+
 
     const capitalizeWords = (str) => {
         return str
@@ -62,6 +78,8 @@ export default function Coffee() {
         return coffees.map( (coffee, index) => {
             const userReview = coffee.reviews.find(review => review.user.username === currentUser)
             const hasUserReview = !!userReview
+            const isCoffeeFavorite = favorites && favorites.some((fav) => fav.id === coffee.id);
+
 
             const buttonHandler = hasUserReview ? () => handleEditReview(coffee.id, userReview) : () => handleAddReview(coffee.id)
             const buttonId = hasUserReview ? 'edit-review-button' : 'add-review-button'
@@ -79,7 +97,7 @@ export default function Coffee() {
                             <div className="interactive-footer">
                                 <h4>{coffee.rating}<Rating name="read-only" value={coffee.rating}readOnly/></h4>
                                 <h4>Caffeine - {coffee.caffeine}mg/Serving</h4>
-                                <h4>Recipe</h4>
+                                <FavoriteButton coffee={coffee} isFavorite={isCoffeeFavorite}/>
                                 <h4 onClick={() => handleViewReviews(index)}> {index == openReviewIndex ? 'Close Reviews' : 'See Reviews'}</h4>
                                 <h4 id={buttonId} onClick={buttonHandler}>
                                     {hasUserReview ? 'Edit Review' : 'Add Review'}

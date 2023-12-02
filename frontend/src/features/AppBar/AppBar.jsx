@@ -10,8 +10,8 @@ import { Link } from 'react-router-dom';
 
 const menuItems = [
     {
-      label: 'Tea',
-      path: "tea"
+      label: 'Favorites',
+      path: "favorites"
     },
     {
       label: 'Coffee',
