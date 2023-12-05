@@ -29,18 +29,25 @@ class SignupView(CreateAPIView):
 
 
 class FavoriteCoffee(APIView):
-    def get(self, request):
+    def get(self, request, username=None):
         try:
-            user = request.user
-            print(user, 'THIS IS WHAT USER IS')
-            if Users.objects.filter(user__username=user.username).exists():
-                app_user = Users.objects.get(user=user)
-                print(app_user, 'THIS IS APP USER')
-                serializer = UserSerializer(app_user)
-                return Response(serializer.data, status=status.HTTP_200_OK)
+            if username:
+                # If a username is provided in the request, retrieve the user information for that username
+                if Users.objects.filter(user__username=username).exists():
+                    app_user = Users.objects.get(user__username=username)
+                    serializer = UserSerializer(app_user)
+                    return Response(serializer.data, status=status.HTTP_200_OK)
+                else:
+                    return Response({"message": "User not found"}, status=status.HTTP_404_NOT_FOUND)
             else:
-                print("didn't find user")
-                return Response({"message": "User not found"}, status=status.HTTP_404_NOT_FOUND)
+                # If no username is provided, retrieve information for the current authenticated user
+                user = request.user
+                if Users.objects.filter(user__username=user.username).exists():
+                    app_user = Users.objects.get(user=user)
+                    serializer = UserSerializer(app_user)
+                    return Response(serializer.data, status=status.HTTP_200_OK)
+                else:
+                    return Response({"message": "User not found"}, status=status.HTTP_404_NOT_FOUND)
         except Exception as e:
             print(f"An error occurred: {str(e)}")
             return Response({"message": "Internal Server Error"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

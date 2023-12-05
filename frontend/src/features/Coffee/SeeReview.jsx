@@ -16,9 +16,13 @@ export default function SeeReview({coffee}) {
             <h1> Reviews </h1>
             {coffee.reviews.map(( review, index ) => (
                 <div key={index} className='review-container'>
-                    <h5>{review.user.username}</h5>
-                    <p>{review.text}</p>
+                    <div className='review-like'>
                     <LikeButton review={review} isLiked={review.liked_by.some(username => username === localStorage.getItem('username'))}/>
+                    </div>
+                    <div>
+                    <h4>{review.user.username}</h4>
+                    <p>{review.text}</p>
+                    </div>
                 </div>
             ))}
         </div>

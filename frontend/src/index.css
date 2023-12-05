@@ -1,11 +1,12 @@
-img {
+/* img {
     width: 100%;
-}
+} */
 
 body {
     margin: 0;
     padding: 0;
-    background-color:papayawhip
+    background-color:papayawhip;
+    font-family: 'Montserrat-Regular'
 }
 
 @font-face {
@@ -97,7 +98,7 @@ body {
 }
 
 .coffee-page {
-    background-color: white;
+    /* background-color: white; */
     width: 65%;
     margin-inline: auto;
 }
@@ -122,11 +123,11 @@ body {
 
 }
 
-.coffee-header-image img {
+/* .coffee-header-image img {
     width: 100%;
     max-width: 100%;
     border-radius: 45px;
-}
+} */
 
 .coffee-header-image h1 {
     padding: 10px;
@@ -215,12 +216,11 @@ body {
     display: flex;
     flex-direction: column;
     border: 2px solid black;
-    width: 50%;
+    width: 70%;
     height: 230px;
     margin: 20px;
     margin-inline: auto;
     padding: 15px;
-    transform: translateX(8%);
     border-radius: 15px;
     background-color: rgba(255, 239, 213, 0.405);
     overflow-y: auto;
@@ -238,6 +238,7 @@ body {
     margin: 0;
 }
 .review-container {
+    display: flex;
     border: 2px solid black;
     border-radius: 25px;
     padding: 10px;
@@ -246,6 +247,8 @@ body {
     margin-bottom: 0px;
     margin-top: 7px;
     background-color: white;
+    align-items: center;
+    gap: 15px;
 }
 
 .caffeine-typography {
@@ -270,7 +273,7 @@ body {
 .contact-title {
     color: #362417;
     font-size: 4.5rem;
-
+}
   .add-a-coffee {
     width: 50%;
     margin: 0;
@@ -280,6 +283,7 @@ body {
     padding: 30px;
     padding-inline: 0px;
 }
+
 
 .coffee-control-button {
     display: flex;
@@ -335,4 +339,8 @@ body {
 .suggestions {
     height: 125px;
     overflow-y: auto;
+}
+
+.about-image {
+    max-width: 100%;
 }

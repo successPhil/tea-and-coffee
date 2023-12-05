@@ -15,7 +15,6 @@ async function basicFetch(url, payload, key) {
         } 
     }
     const body = await res.json()
-    console.log('hello')
     return body
   }
   

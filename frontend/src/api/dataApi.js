@@ -13,20 +13,6 @@ async function basicFetch(url, payload) {
     return body
 }
 
-export async function teaFetch() {
-    const userToken = localStorage.getItem('token');
-    const payload = {
-        method: 'GET',
-        headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `token ${userToken}`,
-        },
-    }
-
-    const body = await basicFetch(`${API_BASE_URL}/v1/all-teas`, payload);
-    return body;
-}
-
 export async function coffeeFetch() {
     const userToken = localStorage.getItem('token');
     const payload = {
@@ -131,6 +117,20 @@ export async function userDataFetch() {
 
     const body = await basicFetch(`${API_BASE_URL}/v1/coffee/favorites/users`, payload);
     return body;
+}
+
+export async function userSearchFetch(userName) {
+  const userToken = localStorage.getItem('token');
+  const payload = {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `token ${userToken}`,
+    },
+  }
+
+  const body = await basicFetch(`${API_BASE_URL}/v1/coffee/favorites/users/${userName}`, payload);
+  return body;
 }
 
 export async function handleLikesFetch(reviewId) {
