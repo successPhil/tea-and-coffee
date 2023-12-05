@@ -10,7 +10,6 @@ const Divider = () => {
 export default function About() {
     return (
     <>
-    <h1>Starting the about Page</h1>
     <div className="profile-logo"> 
     <img src={logo} alt="Company logo"/>
     </div>
