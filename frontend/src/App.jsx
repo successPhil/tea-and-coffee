@@ -91,6 +91,7 @@ function App() {
           <Route path="favorites" element={<Favorites/>}/>
           <Route path="profile" element={<Profile getUserData={getUserData}/>}/>
           <Route path="coffee" element={<Coffee />}/>
+          <Route path="coffee" element={<Coffee/>}/>
           <Route path="home" element={<Home/>}/>
           <Route path="about" element={<About/>}/>
           <Route path='documentation' element={<Documentation />}/>

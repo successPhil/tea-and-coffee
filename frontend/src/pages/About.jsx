@@ -21,6 +21,7 @@ export default function About() {
             <li>Favorite, Leave reviews, and interact with the community!</li>
         </ul>
         </div>
+
     <div className="profile-logo"> 
     <img src={logo} alt="Company logo" className="about-image"/>
     </div>

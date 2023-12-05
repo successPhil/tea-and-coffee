@@ -28,14 +28,13 @@ export default function AddProfile( { handleAddProfile, getUserData }) {
         await getUserData()
     }
 
-    console.log('LOOK AT THESE')
-    console.log(firstName)
-    console.log(lastName)
 
     const addProfile = async (profileData) => {
         console.log(profileData, 'this is getting into addProfile')
         // const base_url = import.meta.env.VITE_BASE_URL
+        // const base_url = "localhost:8000"
         const base_url = "127.0.0.1:8000"
+
         const url = `http://${base_url}/api/v1/users/profile`
         let formData = new FormData()
         formData.append("first_name", profileData.first_name)
@@ -61,7 +60,6 @@ export default function AddProfile( { handleAddProfile, getUserData }) {
     }
     return (
         <>
-        <h1>What is this</h1>
         {errors && <h4>{JSON.stringify(errors)}</h4>}
         <div className="share-input">
                 <input placeholder='first name' value={firstName} name="firstName" onChange={handleFirstNameChange}></input>

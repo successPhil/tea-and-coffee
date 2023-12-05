@@ -3,6 +3,7 @@ import UserContext from "../../contexts/UserContext";
 import { useNavigate } from "react-router-dom"
 
 export default function AddCoffee({handleAddCoffee, getCoffeeData={getCoffeeData}}){
+
     const navigate = useNavigate()
     const { userToken } = useContext(UserContext)
     const [ coffeeName , setCoffeeName ] = useState()
@@ -39,7 +40,9 @@ export default function AddCoffee({handleAddCoffee, getCoffeeData={getCoffeeData
     const addCoffee = async (coffeeObj) => {
         // const base_url = import.meta.env.VITE_BASE_URL
         // http://127.0.0.1:8000/api
+        // const base_url = "localhost:8000"
         const base_url = "127.0.0.1:8000"
+
         const url = `http://${base_url}/api/v1/coffee/`
         let formData = new FormData()
         formData.append("name", coffeeObj.name)
