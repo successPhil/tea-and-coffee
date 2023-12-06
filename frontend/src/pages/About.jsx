@@ -16,9 +16,18 @@ export default function About() {
     <div className="add-a-coffee-left">
         <h4>Welcome to the Echo Coffee Co.!</h4>
         <ul>
-            <li>Browse our coffee database</li>
-            <li>Add your own coffees to the database</li>
-            <li>Favorite, Leave reviews, and interact with the community!</li>
+        <li>Discover new coffees&#58; 
+              On the Echo Coffee Co. site&#44; you can browse our database of a couple dozen &#40;and growing&#33;&#41; excellent coffees. Search for a recipe, or learn about a coffee type.
+            </li>
+            <li>Add your own coffees&#58; 
+              Can't find what you&apos;re looking for&#63; Add it to our collection. You can also add your favorite coffee recipes to the collection for others to enjoy. 
+            </li>
+            <li>Write a review&#58; 
+              Write a review about a coffee or recipe. You can also like other recipes.
+            </li>
+            <li>Meet new people&#58; 
+              If you think our baboons are beautiful &#40;some people are into that kind of thing&#41;&#44; wait till you meet our customers&#33; On our site, you can get to know other coffee lovers and share recipes.
+            </li>
         </ul>
         </div>
 
