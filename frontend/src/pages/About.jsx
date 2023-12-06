@@ -2,6 +2,8 @@ import logo from "../pages/about/assets/Images/Logo_2.png"
 import coffeeHyena from "../pages/about/assets/Images/hyenaBurrista.jpg"
 import hyenaWorker from "../pages/about/assets/Images/hyenaWorker.jpg"
 import hyenaMascot from "../pages/about/assets/Images/hyenaMascot.jpg"
+import AutoAwesomeOutlinedIcon from '@mui/icons-material/AutoAwesomeOutlined';
+import Documentation from "./Documentation"
 
 const Divider = () => {
     return <div style={{ borderBottom: '1px solid #ccc', margin: '20px 0' }} />;
@@ -10,8 +12,18 @@ const Divider = () => {
 export default function About() {
     return (
     <>
+    
+    <div className="add-a-coffee-left">
+        <h4>Welcome to the Echo Coffee Co.!</h4>
+        <ul>
+            <li>Browse our coffee database</li>
+            <li>Add your own coffees to the database</li>
+            <li>Favorite, Leave reviews, and interact with the community!</li>
+        </ul>
+        </div>
+
     <div className="profile-logo"> 
-    <img src={logo} alt="Company logo"/>
+    <img src={logo} alt="Company logo" className="about-image"/>
     </div>
 
     <div className="company-about">
@@ -35,13 +47,13 @@ export default function About() {
     <br/>
     <div className="main-content-image-container">
     <div className="main-content-image">
-      <img src={coffeeHyena}  alt="Spotted hyena working the coffee machine"/>
+      <img src={coffeeHyena}  alt="Spotted hyena working the coffee machine" className="about-image"/>
     </div>
      <div className="main-content-image">
-        <img src={hyenaMascot}  alt="glorious hyena mascot"/>
+        <img src={hyenaMascot}  alt="glorious hyena mascot" className="about-image"/>
      </div>
     <div className="main-content-image">
-      <img src={hyenaWorker}  alt="Spotted hyena delivering coffee"/>
+      <img src={hyenaWorker}  alt="Spotted hyena delivering coffee" className="about-image"/>
     </div>
    
     </div>
@@ -63,7 +75,9 @@ export default function About() {
     </div>
     <br/>
     <br/>
-   
+    <button className="coffee-control-button"><span className='coffee-control-icon'><AutoAwesomeOutlinedIcon /></span> Suggest a feature</button>
+     {/* <button className="coffee-control-button"><AutoAwesomeOutlinedIcon /> Suggest a feature</button> */}
+   <Documentation/>
     
     </>)
 }

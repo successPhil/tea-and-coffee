@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-export default function AddProfile( { handleAddProfile }) {
+export default function AddProfile( { handleAddProfile, getUserData }) {
     const navigate = useNavigate()
     const [ firstName , setFirstName ] = useState()
     const [ lastName, setLastName ] = useState()
@@ -22,15 +22,19 @@ export default function AddProfile( { handleAddProfile }) {
             picture: picture,
             about_me: aboutMe
         }
-
+        console.log('what is profile data,', profileData)
         await addProfile(profileData)
         await handleAddProfile()
+        await getUserData()
     }
+
 
     const addProfile = async (profileData) => {
         console.log(profileData, 'this is getting into addProfile')
-        const base_url = import.meta.env.VITE_BASE_URL
+        // const base_url = import.meta.env.VITE_BASE_URL
         // const base_url = "localhost:8000"
+        const base_url = "127.0.0.1:8000"
+
         const url = `http://${base_url}/api/v1/users/profile`
         let formData = new FormData()
         formData.append("first_name", profileData.first_name)

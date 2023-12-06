@@ -9,4 +9,5 @@ urlpatterns = [
     path('signup', SignupView.as_view()),
     path('users', FavoriteCoffee.as_view()),
     path('profile', UserProfile.as_view()),
+    path('users/<str:username>/', FavoriteCoffee.as_view()),
 ]

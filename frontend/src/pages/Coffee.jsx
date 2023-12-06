@@ -7,10 +7,7 @@ import AddReview from "../features/Coffee/AddReview";
 import EditReview from "../features/Coffee/EditReview";
 import FavoriteButton from "../features/Coffee/FavoriteButton";
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
-import AddCircleIcon from '@mui/icons-material/AddCircle';
-import AutoAwesomeOutlinedIcon from '@mui/icons-material/AutoAwesomeOutlined';
 import SearchBar from "../features/AutoFillSearch/SearchBar";
-import SearchIcon from '@mui/icons-material/Search';
 import '../index.css'
 
 export default function Coffee() {
@@ -33,23 +30,16 @@ export default function Coffee() {
         setFilteredCoffees([])
     }
 
-
     const getUserData = async () => {
         const fetchedData = await userDataFetch();
         setFavorites(fetchedData.favorites)
     }
 
-    console.log(coffees, 'THESE ARE COFFEES')
-
-    // const currentUser = localStorage.getItem("username")
-
-    console.log(favorites, 'THIS IS FAVORITES')
 
     const handleAddCoffee = () => {
         setAddCoffeeForm(!addCoffeeForm)
         console.log(addCoffeeForm)
     }
-    console.log('rendering coffee')
 
     const handleAddReview = (coffeeId) => {
         console.log("Toggling addReviewForm");
@@ -72,6 +62,7 @@ export default function Coffee() {
     useEffect(() => {
         getUserData()
     }, [])
+
 
 
     const capitalizeWords = (str) => {
@@ -100,35 +91,42 @@ export default function Coffee() {
             const buttonId = hasUserReview ? 'edit-review-button' : 'add-review-button'
 
             return (
-
-                <div key={index}>
-                    <div className="coffee-card">
-                        <div className="coffee-header-image">
-                            <img className="img-fluid" src={coffee.picture}/>
-                        </div>
-                        <div className="coffee-interactive-info">
-                            <h1>{capitalizeWords(coffee.name)}</h1> 
-                            <p>{coffee.description}</p>
-                            <div className="interactive-footer">
-                                <h4>{coffee.rating}<Rating name="read-only" value={coffee.rating}readOnly/></h4>
-                                <div className="caffeine-typography">
-                                <h4>Caffeine:</h4>
-                                <h4>{coffee.caffeine}mg/Serving</h4>
+                <div key={coffee.id}>
+                    <div className="card mb-3 mx-auto bg-warning-subtle" style={{ maxWidth: '1200px' }}>
+                        <div className="row g-0">
+                            <div className="col-md-4">
+                                <img src={coffee.picture} className="img-fluid rounded-start" alt="Coffee Image" style={{ width: '250px', height: '250px'}}/>
+                            </div>
+                            <div className="col-md-8 d-flex flex-column">
+                                <div className="card-body">
+                                    <h5 className="card-title">{capitalizeWords(coffee.name)}</h5>
+                                    <p className="card-text">{coffee.description}</p>
                                 </div>
-                                <FavoriteButton coffee={coffee} isFavorite={isCoffeeFavorite}/>
-                                <h4 className='interactive-h4' onClick={() => handleViewReviews(index)}> {index == openReviewIndex ? 'Close Reviews' : 'See Reviews'}</h4>
-                                <h4 className='interactive-h4' id={buttonId} onClick={buttonHandler}>
-
-                                    {hasUserReview ? 'Edit Review' : 'Add Review'}
-                                </h4>
+                                <div className="card-menu d-flex p-2 justify-content-between align-items-end">
+                                    <div>
+                                        <h4>{coffee.rating}<Rating name="read-only" value={parseInt(coffee.rating)} readOnly /></h4>
+                                        <div className="caffeine-typography">
+                                            <p>Caffeine: {coffee.caffeine}mg/Serving</p>
+                                        </div>
+                                    </div>
+                                    <FavoriteButton coffee={coffee} isFavorite={isCoffeeFavorite} />
+                                    <div>
+                                        <button className='btn btn-link interactive-btn' onClick={() => handleViewReviews(index)}>
+                                        {index === openReviewIndex ? 'Close Reviews' : 'See Reviews'}
+                                        </button>
+                                        <button className='btn btn-link interactive-btn' id={buttonId} onClick={buttonHandler}>
+                                        {hasUserReview ? 'Edit Review' : 'Add Review'}
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                {openReviewIndex == index && (<SeeReview coffee={coffees[openReviewIndex]}/>)}
+                    {openReviewIndex === index && (<SeeReview coffee={coffee} />)}
                 </div>
-                )
-            })
-        }
+            );
+        });
+    };
 
     const getCoffeeData = async () => {
         const fetchedCoffees = await coffeeFetch();
@@ -137,28 +135,17 @@ export default function Coffee() {
 
     return (
     <div className="coffee-page">
-    <div className="add-a-coffee">
-        <div className="add-a-coffee-left">
-        <h4>Welcome to the Echo Coffee Co.!</h4>
-        <ul>
-            <li>Browse our coffee database</li>
-            <li>Add your own coffees to the database</li>
-            <li>Favorite, Leave reviews, and interact with the community!</li>
-        </ul>
-        </div>
-        <div className="add-a-coffee-right">
-        <button id='add-coffee-button'className="coffee-control-button" onClick={handleAddCoffee}><span className='coffee-control-icon'><AddCircleOutlineOutlinedIcon /></span> New Coffee</button>
-        {/* <button className="coffee-control-button"><AutoAwesomeOutlinedIcon /> Suggest a feature</button> */}
-        <button className="coffee-control-button"><span className='coffee-control-icon'><AutoAwesomeOutlinedIcon /></span> Suggest a feature</button>
+        <div className="d-flex justify-content-around align-items-center my-2">
+    <div>
         <SearchBar state={coffees} setState={setCoffees} handleSearch={handleSearch} handleClearSearch={handleClearSearch}/>
         </div>
+    <div>
+        <button id='add-coffee-button'className="coffee-control-button" onClick={handleAddCoffee}><span className='coffee-control-icon'><AddCircleOutlineOutlinedIcon /></span> New Coffee</button>
     </div>
-
+        </div>
     {filteredCoffees.length === 0 ? createCoffeeList(coffees) : createCoffeeList(filteredCoffees)}
     {addCoffeeForm && <AddCoffee handleAddCoffee={handleAddCoffee} getCoffeeData={getCoffeeData}/>}
     {addReviewForm && <AddReview handleAddReview={handleAddReview} coffeeId={selectedCoffeeId} />}
     {editReviewForm && <EditReview handleEditReview={handleEditReview} coffeeId={selectedCoffeeId} selectedUserReview={selectedUserReview} editReviewForm={editReviewForm}/>}
-   
-
     </div>)
 }

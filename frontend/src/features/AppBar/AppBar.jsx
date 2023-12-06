@@ -28,20 +28,25 @@ const menuItems = [
       label: 'Contact Us',
       path: 'contacts'
     },
-    {
-      label: 'Documentation',
-      path: 'documentation'
-    }
+    // {
+    //   label: 'Documentation',
+    //   path: 'documentation'
+    // }
   ];
 
 export default function ResponsiveAppBar({handleLogout}) {
   const {userData } = useContext(UserContext)
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{ backgroundColor: '#795548' /* Brown color */ }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }}}>
-            <Box sx={{flexGrow: 1, display: { xs: 'none', md: 'flex'}, justifyContent: 'space-between'}}>
+            <Box sx={{
+              flexGrow: 1,
+              display: { xs: 'none', md: 'flex' },
+              justifyContent: 'space-between',
+              alignItems: 'center', // Center items vertically
+            }}>
             <Link to='/profile' style={{ textDecoration: 'none' }}>
               <div className='profile-menu-button'>
                 <Avatar src={userData?.picture} alt='Profile Avatar'/>
@@ -50,12 +55,11 @@ export default function ResponsiveAppBar({handleLogout}) {
                   mx:3,
                   my: 2,
                   display: 'block',
-                  fontFamily: 'Baloo 2, sans-serif',
+                  fontFamily: 'Montserrat-Regular, sans-serif',
                   fontSize: '2.0rem',
                   color: '#cacfcd',
                   }}
-                  >
-                    Profile
+                  >My Profile
                     </Button>
               </div> 
             </Link>
@@ -67,7 +71,7 @@ export default function ResponsiveAppBar({handleLogout}) {
                             mx:3,
                             my: 2,
                             display: 'block',
-                            fontFamily: 'Baloo 2, sans-serif',
+                            fontFamily: 'Montserrat-Regular, sans-serif',
                             fontSize: '2.0rem',
                             color: '#cacfcd', 
                           }}
@@ -81,8 +85,9 @@ export default function ResponsiveAppBar({handleLogout}) {
              <Link to="/" id="logout" style={{ textDecoration: 'none' }} >
               <Button onClick={handleLogout}
               variant="outlined"
-              color='secondary'
               sx={{
+                color: 'red',
+                borderColor: 'red',
                 mx:3,
                 my: 2,
                 display: 'block',

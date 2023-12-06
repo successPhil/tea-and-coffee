@@ -6,15 +6,13 @@ import Login from './pages/Login';
 import Favorites from './pages/Favorites';
 import Coffee from './pages/Coffee';
 import './index.css'
-import Footer from './components/TeaNavigation/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
 import Documentation from './pages/Documentation';
 import Profile from './pages/Profile';
-import { userDataFetch } from './api/dataApi';
+import { userDataFetch, coffeeFetch } from './api/dataApi';
 import Contacts from './pages/Contacts';
-
-
+import SearchProfile from './features/UserProfile/SearchProfile';
 
 function App() {
 
@@ -23,6 +21,12 @@ function App() {
   const [checked, setChecked] = useState(false)
   const [signUp, setSignUp ] = useState(false)
   const [ userData, setUserData ] = useState(null)
+  const [ coffees, setCoffees ] = useState([])
+
+  const getCoffeeData = async () => {
+    const fetchedCoffees = await coffeeFetch();
+    setCoffees(fetchedCoffees)
+}
 
   const getUserData = async () => {
     const fetchedData = await userDataFetch();
@@ -33,12 +37,14 @@ function App() {
   useEffect( () => {
     const token = localStorage.getItem("token")
     getUserData()
+    getCoffeeData()
     console.log(token)
     if(token) {
       setUserToken(token)
     }
 
   }, [])
+  
   const handleToken = (token, username) => {
     console.log("handleToken")
     setFormData({ username: '', password: '' })
@@ -77,22 +83,20 @@ function App() {
 
   return (
     <>
-    <UserContext.Provider value={{userToken, userData}}>
+    <UserContext.Provider value={{userToken, userData, coffees, setCoffees}}>
       <Router>
         {userToken && (<ResponsiveAppBar handleLogout={handleLogout} />)}
-        <div className='body'>
         <Routes>
           <Route path="/" element={<Login setChecked={setChecked} checked={checked} handleOnClick={handleOnClick} handleInputChange={handleInputChange} formData={formData} handleToken={handleToken} token={userToken} signUp={signUp} handleSignUp={handleSignUp}/>} />
           <Route path="favorites" element={<Favorites/>}/>
           <Route path="profile" element={<Profile getUserData={getUserData}/>}/>
+          <Route path="coffee" element={<Coffee />}/>
           <Route path="coffee" element={<Coffee/>}/>
           <Route path="home" element={<Home/>}/>
           <Route path="about" element={<About/>}/>
           <Route path='documentation' element={<Documentation />}/>
           <Route path="contacts" element={<Contacts/>}/>
       </Routes>
-        </div>
-        {userToken && (<Footer />)}
       </Router>
       
       </UserContext.Provider>
