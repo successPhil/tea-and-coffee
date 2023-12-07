@@ -74,7 +74,7 @@ export default function UserSearch () {
         <div className="container">
         <div className="flex-column">
         <h1 className="mt-4 mb-4">{userSearchData.username}</h1>
-        <img src={userSearchData.picture} alt="Profile Pic" className="round img-fluid float-start" style={{width: '200px'}}/>
+        <img src={userSearchData.picture} alt="Profile Pic" className="rounded img-thumbnail float-start" style={{width: '200px', backgroundColor: '#3C180E' }}/>
         </div>
         <div className="row">
         <h3 className="p-4 row m-4 text-start">{userSearchData.about_me}</h3>
@@ -85,9 +85,9 @@ export default function UserSearch () {
         </div>
         <div className="container" style={{ maxWidth: '70%' }}>
         {showLikesInfo && (
-          <div className="modal-favorites">
-            <div className="modal-content">
-              <span className="close" onClick={handleClose}>
+          <div className="popup-favorites">
+            <div className="popup-likes-center bg-warning-subtle rounded p-4">
+              <span className="close align-self-end" onClick={handleClose}>
                 &times;
               </span>
               <h6>{capitalizeWords(selectedCoffee.name)}</h6>

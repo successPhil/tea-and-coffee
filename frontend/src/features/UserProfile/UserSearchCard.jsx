@@ -19,7 +19,7 @@ export default function UserSearchCard( { favorites, handleReviews, handleLikes,
                   <img
                     src={coffee.picture}
                     alt={coffee.name}
-                    style={{height: '200px'}}
+                    style={{height: '200px', width: '200px', backgroundColor: '#3C180E'}}
                     className="img-thumbnail"
                   />
                 </div>

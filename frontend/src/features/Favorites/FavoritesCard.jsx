@@ -19,8 +19,8 @@ export default function FavoritesCard( { favorites, handleReviews, handleLikes, 
                     <img
                       src={coffee.picture}
                       alt={coffee.name}
-                      style={{height: '200px'}}
-                      className="img-thumbnail bg-warning-subtle bg-opacity-25 rounded"
+                      style={{height: '200px', backgroundColor: '#3C180E' }}
+                      className="img-thumbnail rounded"
                     />
                   </div>
                   {/* Card Body */}

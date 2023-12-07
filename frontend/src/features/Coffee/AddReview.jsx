@@ -19,7 +19,7 @@ export default function AddReview({ coffeeId, handleAddReview }) {
   };
 
  
-  const coffee = coffees.find((coffee) => coffee.id === coffeeId);
+  const coffee = coffees?.find((coffee) => coffee.id === coffeeId);
   const coffeeName = coffee ? capitalizeWords(coffee.name) : "";
   console.log(coffeeName) 
 
@@ -37,7 +37,6 @@ export default function AddReview({ coffeeId, handleAddReview }) {
       rating: rating,
     };
 
-    console.log(reviewData)
 
     try {
       await addCoffeeReview(reviewData);

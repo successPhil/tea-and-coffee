@@ -1,7 +1,4 @@
-// import logo from "../../src/assets/logo_2b.png"
-import coffeeHyena from "../pages/about/assets/Images/hyenaBurrista.jpg"
-import hyenaWorker from "../pages/about/assets/Images/hyenaWorker.jpg"
-import hyenaMascot from "../pages/about/assets/Images/hyenaMascot.jpg"
+import logo from "../../src/assets/coffeeLogo.png"
 import AutoAwesomeOutlinedIcon from '@mui/icons-material/AutoAwesomeOutlined';
 import Documentation from "./Documentation"
 
@@ -21,10 +18,10 @@ export default function About() {
             <li>Favorite, Leave reviews, and interact with the community!</li>
         </ul>
         </div>
-{/* 
+
     <div className="profile-logo"> 
     <img src={logo} alt="Company logo" className="about-image"/>
-    </div> */}
+    </div>
 
     <div className="company-about">
     <Divider/>
@@ -43,19 +40,6 @@ export default function About() {
       <h3 className="sectionContentSubTitle">Training the intrepid spotted hyena</h3>
       <p className="sectionContent"> Our story is as unique as our brews. Amidst the African savannas, we started an unconventional experiment&mdash;training orphaned spotted hyenas to brew coffee and tea. Equipped with specialized machines tailored for their paws, these intelligent creatures amazed everyone with their brewing skills. Our first shop opened in Bermuda, bringing a piece of the wild to every cup. </p>
     <Divider/>
-    </div>
-    <br/>
-    <div className="main-content-image-container">
-    <div className="main-content-image">
-      <img src={coffeeHyena}  alt="Spotted hyena working the coffee machine" className="about-image"/>
-    </div>
-     <div className="main-content-image">
-        <img src={hyenaMascot}  alt="glorious hyena mascot" className="about-image"/>
-     </div>
-    <div className="main-content-image">
-      <img src={hyenaWorker}  alt="Spotted hyena delivering coffee" className="about-image"/>
-    </div>
-   
     </div>
     <br/>
     <div className="main-content">

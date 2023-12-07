@@ -96,7 +96,7 @@ export default function Coffee() {
                     <div className="card mb-3 mx-auto rounded" style={{ maxWidth: '1200px', backgroundColor: 'rgba(180, 112, 52, 0.3)', border: '3px solid #3C180E', color: '#3C180E' }}>
                         <div className="row g-0">
                             <div className="col-md-4">
-                                <img src={coffee.picture} className="img-thumbnail bg-warning-subtle rounded-start p-1 m-4" alt="Coffee Image" style={{ width: '250px', height: '250px'}}/>
+                                <img src={coffee.picture} className="img-thumbnail  rounded-start p-1 m-4" alt="Coffee Image" style={{ width: '250px', height: '250px', backgroundColor: '#3C180E' }}/>
                             </div>
                             <div className="col-md-8 d-flex flex-column">
                                 <div className="card-body">

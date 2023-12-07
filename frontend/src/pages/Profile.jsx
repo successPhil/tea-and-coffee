@@ -1,7 +1,7 @@
 import { useState, useContext } from "react"
 import UserContext from "../contexts/UserContext"
 import AddProfile from "../features/UserProfile/AddProfile"
-// import defaultProfile from "../../src/assets/logo_2.png"
+import defaultProfile from "../../src/assets/coffeeLogo.png"
 
 export default function Profile ( { getUserData }) {
 
@@ -20,7 +20,7 @@ export default function Profile ( { getUserData }) {
             {userData?.picture ? (
       <img src={userData.picture} alt="profile pic" style={{ width: '200px', backgroundColor: '#3C180E' }} className="img-thumbnail round align-self-start" />
     ) : (
-      <img src="" alt="placeholder" style={{ width: '200px', border: '3px solid #3C180E' }} className="img-thumbnail round align-self-start bg-warning-subtle mb-2" />
+      <img src={defaultProfile} alt="placeholder" style={{ width: '200px', border: '3px solid #3C180E' }} className="img-thumbnail round align-self-start bg-warning-subtle mb-2" />
     )}
 
         <button id="add-coffee-button" className="btn mt-2 align-self-center" onClick={handleAddProfile}>update profile</button>

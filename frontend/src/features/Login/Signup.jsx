@@ -5,8 +5,8 @@ import { MdEmail } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import { useContext, useState, useEffect } from 'react';
 import './Signup.css'
-import logo from '../../pages/about/assets/Images/Logo_2B.png'
-import backgroundImage from '../../pages/about/assets/Images/CoffeeBeanBackground.png'
+import logo from '../../assets/coffeeLogo.png'
+import backgroundImage from '../../assets/CoffeeBeanBackground.png'
 
 function SignIn({ setChecked, handleInputChange, handleSubmit, responseMsg, signUp, formData, checked, handleOnClick, handleSignUp}) {
   console.log('responseMsg', responseMsg)  
