@@ -31,8 +31,8 @@ export default function AddProfile( { handleAddProfile, getUserData }) {
 
     const addProfile = async (profileData) => {
         console.log(profileData, 'this is getting into addProfile')
-        const base_url = import.meta.env.VITE_BASE_URL
-        // const base_url = "127.0.0.1:8000"
+        // const base_url = import.meta.env.VITE_BASE_URL
+        const base_url = "127.0.0.1:8000"
 
         const url = `http://${base_url}/api/v1/users/profile`
         let formData = new FormData()
