@@ -22,6 +22,7 @@ export default function Profile ( { getUserData }) {
     ) : (
       <img src={defaultProfile} alt="placeholder" style={{ width: '200px', border: '3px solid #3C180E' }} className="img-thumbnail round align-self-start bg-warning-subtle mb-2" />
     )}
+
         <button id="add-coffee-button" className="align-self-center" onClick={handleAddProfile}>update profile</button>
         </div>
         {userData && (<>
@@ -37,6 +38,7 @@ export default function Profile ( { getUserData }) {
             </>
 
         )}
+        
         {addProfileForm && <AddProfile handleAddProfile={handleAddProfile} getUserData={getUserData}/>}
         </>
     )

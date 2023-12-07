@@ -135,14 +135,14 @@ export default function Coffee() {
 
     return (
     <div className="coffee-page">
-        <div className="d-flex justify-content-around align-items-center my-2">
-    <div>
-        <SearchBar state={coffees} setState={setCoffees} handleSearch={handleSearch} handleClearSearch={handleClearSearch}/>
-        </div>
-    <div>
-        <button id='add-coffee-button'className="coffee-control-button" onClick={handleAddCoffee}><span className='coffee-control-icon'><AddCircleOutlineOutlinedIcon /></span> New Coffee</button>
-    </div>
-        </div>
+        <div className="d-flex justify-content-evenly align-items-center flex-column flex-md-row my-2">
+            <div>
+                <SearchBar state={coffees} setState={setCoffees} handleSearch={handleSearch} handleClearSearch={handleClearSearch}/>
+            </div>
+            <div>
+            <button id='add-coffee-button'className="coffee-control-button" onClick={handleAddCoffee}><span className='coffee-control-icon'><AddCircleOutlineOutlinedIcon /></span> New Coffee</button>
+            </div>
+            </div>
     {filteredCoffees.length === 0 ? createCoffeeList(coffees) : createCoffeeList(filteredCoffees)}
     {addCoffeeForm && <AddCoffee handleAddCoffee={handleAddCoffee} getCoffeeData={getCoffeeData}/>}
     {addReviewForm && <AddReview handleAddReview={handleAddReview} coffeeId={selectedCoffeeId} />}

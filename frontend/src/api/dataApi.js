@@ -23,8 +23,10 @@ export async function coffeeFetch() {
         },
     }
 
-    const body = await basicFetch(`${API_BASE_URL}/v1/coffee/`, payload);
-    return body;
+    if (userToken) {
+      const body = await basicFetch(`${API_BASE_URL}/v1/coffee/`, payload);
+      return body;
+    }
 }
 
 export async function addCoffeeReview(reviewData) {
@@ -39,9 +41,12 @@ export async function addCoffeeReview(reviewData) {
       },
       body: JSON.stringify(reviewData),
     };
+
+    if (userToken) {
     const body = await basicFetch(`${API_BASE_URL}/v1/coffee/review/`, payload);
     console.log(body, 'AFTER FETCH')
     return body;
+    }
   }
 
 
@@ -55,7 +60,10 @@ export async function removeCoffeeReview(reviewData) {
     },
     body: JSON.stringify({coffee_id: reviewData.coffee_id, pk: reviewData.pk})
   };
+
+  if (userToken) {
   await basicFetch(`${API_BASE_URL}/v1/coffee/review/`, payload)
+  }
 }
 
 export async function addFavorite(coffeeId) {
@@ -68,8 +76,11 @@ export async function addFavorite(coffeeId) {
     },
     body: JSON.stringify({coffee_id: coffeeId})
   }
+
+  if (userToken) {
   const body = await basicFetch(`${API_BASE_URL}/v1/coffee/favorites/users`, payload)
   return body
+  }
 }
 
 export async function removeFavorite(coffeeId) {
@@ -83,8 +94,10 @@ export async function removeFavorite(coffeeId) {
     },
     body: JSON.stringify({coffee_id: coffeeId})
   }
-  await basicFetch(`${API_BASE_URL}/v1/coffee/favorites/users`, payload)
 
+  if (userToken) {
+  await basicFetch(`${API_BASE_URL}/v1/coffee/favorites/users`, payload)
+  }
 }
 
 export async function editCoffeeReview(reviewData) {
@@ -99,9 +112,12 @@ export async function editCoffeeReview(reviewData) {
       },
       body: JSON.stringify(reviewData),
     };
+
+    if (userToken) {
     const body = await basicFetch(`${API_BASE_URL}/v1/coffee/review/`, payload);
     console.log(body, 'AFTER FETCH')
     return body;
+    }
   }
 
 // localhost:8000/api/v1/coffee/favorites/users
@@ -115,8 +131,10 @@ export async function userDataFetch() {
         },
     }
 
+    if (userToken) {
     const body = await basicFetch(`${API_BASE_URL}/v1/coffee/favorites/users`, payload);
     return body;
+    }
 }
 
 export async function userSearchFetch(userName) {
@@ -129,8 +147,10 @@ export async function userSearchFetch(userName) {
     },
   }
 
+  if (userToken) {
   const body = await basicFetch(`${API_BASE_URL}/v1/coffee/favorites/users/${userName}`, payload);
   return body;
+  }
 }
 
 export async function handleLikesFetch(reviewId) {
@@ -144,7 +164,10 @@ export async function handleLikesFetch(reviewId) {
     },
     body: JSON.stringify({review_id: reviewId})
   }
+
+  if (userToken) {
   const body = await basicFetch(`${API_BASE_URL}/v1/coffee/likes/all`, payload)
   return body
+  }
 }
 
