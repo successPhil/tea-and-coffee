@@ -288,11 +288,16 @@ body {
 
 .coffee-control-button {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
     background-color: white;
     border-radius: 50px;
     padding: 5px;
-    width:70%;
+    width: 100%;
+    margin-top: 10px;
+    /* margin-inline: auto; */
     /* padding-right: 20%; */
 }
 
@@ -321,6 +326,7 @@ body {
           transform: translate(-17%);
           padding-left: 55%;
           padding-right: 0%;
+          margin-top: 10px;
     }
 
 /* .autofill-search-bar::placeholder {
