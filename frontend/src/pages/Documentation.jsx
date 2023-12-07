@@ -1,4 +1,4 @@
-import '../components/css/Documentation.css'
+import '../css/Documentation.css'
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';

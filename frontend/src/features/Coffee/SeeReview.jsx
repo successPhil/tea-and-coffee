@@ -1,4 +1,3 @@
-import '../../components/css/CoffeeReviews.css'
 import LikeButton from './LikeButton'
 
 
