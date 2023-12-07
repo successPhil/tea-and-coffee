@@ -1,6 +1,7 @@
 import { useState, useContext, useEffect, useRef } from "react";
 import UserContext from "../../contexts/UserContext";
 import { useNavigate } from "react-router-dom"
+import { Rating } from "@mui/material";
 
 export default function AddCoffee({handleAddCoffee, getCoffeeData={getCoffeeData}}){
 
@@ -104,7 +105,7 @@ export default function AddCoffee({handleAddCoffee, getCoffeeData={getCoffeeData
                 <input placeholder='Caffeine Content: mg/serving' value={caffeine} name="caffeine" onChange={handleCaffeineChange}></input>
             </div>
             <div className="share-input">
-                <input placeholder='Rating' value={rating} name="rating" onChange={handleRatingChange}></input>
+                <Rating name='rating' value={rating} precision={1} onChange={handleRatingChange}/>
             </div>
             <div className="share-input">
                 <input type="file" name="coffeeImage" onChange={handlePictureChange}></input>
