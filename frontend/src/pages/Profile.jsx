@@ -13,15 +13,25 @@ export default function Profile ( { getUserData }) {
     console.log(userData, 'in Profile')
     return (
         <>
-        {userData && (
-            <>
-            <h2>First Name: {userData.first_name}</h2>
-        <h2>Last Name: {userData.last_name}</h2>
-        <h3>About Me: {userData.about_me}</h3>
-        </>
+        <div className="container-fluid mt-4">
+            </div>
+            <div className="d-inline-flex flex-column ms-4">
+            <img src={userData.picture} alt="profile pic" style={{width: '200px'}} className="img-thumbnail round align-self-start"/>
+        <button id="add-coffee-button" className="align-self-center" onClick={handleAddProfile}>update profile</button>
+        </div>
+        {userData && (<>
+            <div className="container mt-4">
+                <div className="card">
+                    <div className="card-body rounded" style={{ backgroundColor: 'rgba(180, 112, 52, 0.5)', border: '3px solid #3C180E', color: '#3C180E'}}>
+                        <h2 className="card-title ms-2">Username: {userData.username}</h2>
+                        <h5 className="card-subtitle ms-4 mb-3">Name: {userData.first_name}</h5>
+                        <h3 className="card-text p-4 ms-2">About Me: {userData.about_me}</h3>
+                    </div>
+                </div>
+            </div>
+            </>
 
         )}
-        <button id="add-coffee-button" onClick={handleAddProfile}>update profile</button>
 
         
         {addProfileForm && <AddProfile handleAddProfile={handleAddProfile} getUserData={getUserData}/>}
