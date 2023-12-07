@@ -1,6 +1,7 @@
 import { useState, useContext } from "react"
 import UserContext from "../contexts/UserContext"
 import AddProfile from "../features/UserProfile/AddProfile"
+import defaultProfile from "../assets/logo_2b_720.png"
 
 export default function Profile ( { getUserData }) {
 
@@ -8,7 +9,7 @@ export default function Profile ( { getUserData }) {
     const [ addProfileForm, setAddProfileForm ] = useState(false)
     const handleAddProfile = async () => {
         setAddProfileForm(!addProfileForm)
-        await getUserData()
+        // await getUserData()
     }
     console.log(userData, 'in Profile')
     return (
@@ -16,7 +17,12 @@ export default function Profile ( { getUserData }) {
         <div className="container-fluid mt-4">
             </div>
             <div className="d-inline-flex flex-column ms-4">
-            <img src={userData.picture} alt="profile pic" style={{width: '200px'}} className="img-thumbnail round align-self-start"/>
+            {userData?.picture ? (
+      <img src={userData.picture} alt="profile pic" style={{ width: '200px' }} className="img-thumbnail round align-self-start" />
+    ) : (
+      <img src={defaultProfile} alt="placeholder" style={{ width: '200px', border: '3px solid #3C180E' }} className="img-thumbnail round align-self-start bg-warning-subtle mb-2" />
+    )}
+
         <button id="add-coffee-button" className="align-self-center" onClick={handleAddProfile}>update profile</button>
         </div>
         {userData && (<>
@@ -32,7 +38,6 @@ export default function Profile ( { getUserData }) {
             </>
 
         )}
-
         
         {addProfileForm && <AddProfile handleAddProfile={handleAddProfile} getUserData={getUserData}/>}
         </>
