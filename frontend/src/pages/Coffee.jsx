@@ -42,6 +42,7 @@ export default function Coffee() {
     }
 
     const handleAddReview = (coffeeId) => {
+        console.log(coffeeId, 'this is in handle reviw')
         console.log("Toggling addReviewForm");
         setSelectedCoffeeId(coffeeId)
         setAddReviewForm(!addReviewForm)
@@ -144,8 +145,17 @@ export default function Coffee() {
             </div>
             </div>
     {filteredCoffees.length === 0 ? createCoffeeList(coffees) : createCoffeeList(filteredCoffees)}
-    {addCoffeeForm && <AddCoffee handleAddCoffee={handleAddCoffee} getCoffeeData={getCoffeeData}/>}
-    {addReviewForm && <AddReview handleAddReview={handleAddReview} coffeeId={selectedCoffeeId} />}
+    {addCoffeeForm && (
+    <div className="rounded bg-warning-subtle p-4 popup-addcoffee-center">
+    <AddCoffee handleAddCoffee={handleAddCoffee} getCoffeeData={getCoffeeData}/>
+    </div>
+    )}
+    
+    {addReviewForm && (
+     
+    <AddReview handleAddReview={handleAddReview} coffeeId={selectedCoffeeId} 
+    /> 
+    )}
     {editReviewForm && <EditReview handleEditReview={handleEditReview} coffeeId={selectedCoffeeId} selectedUserReview={selectedUserReview} editReviewForm={editReviewForm}/>}
     </div>)
 }

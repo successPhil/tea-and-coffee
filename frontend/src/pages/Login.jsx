@@ -37,7 +37,7 @@ export default function Login({setChecked, handleInputChange, handleToken, handl
       };
 
       if (token) {
-        return <Navigate to="/home" />;
+        return <Navigate to="/about" />;
       }
       return (
         <div className="route-text">

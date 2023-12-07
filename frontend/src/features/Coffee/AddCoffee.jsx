@@ -7,12 +7,12 @@ export default function AddCoffee({handleAddCoffee, getCoffeeData={getCoffeeData
 
     const navigate = useNavigate()
     const { userToken } = useContext(UserContext)
-    const [ coffeeName , setCoffeeName ] = useState()
-    const [ description, setDescription ] = useState()
-    const [ picture, setPicture ] = useState()
-    const [ caffeine, setCaffeine ] = useState()
-    const [ rating, setRating ] = useState()
-    const [errors, setErrors ] = useState()
+    const [ coffeeName , setCoffeeName ] = useState("")
+    const [ description, setDescription ] = useState("")
+    const [ picture, setPicture ] = useState([])
+    const [ caffeine, setCaffeine ] = useState("")
+    const [ rating, setRating ] = useState("")
+    const [errors, setErrors ] = useState("")
 
     const addCoffeeFormRef = useRef(null)
 
@@ -39,8 +39,8 @@ export default function AddCoffee({handleAddCoffee, getCoffeeData={getCoffeeData
     
 
     const addCoffee = async (coffeeObj) => {
-        // const base_url = import.meta.env.VITE_BASE_URL
-        const base_url = "127.0.0.1:8000"
+        const base_url = import.meta.env.VITE_BASE_URL
+        // const base_url = "127.0.0.1:8000"
 
         const url = `http://${base_url}/api/v1/coffee/`
         let formData = new FormData()
@@ -91,30 +91,45 @@ export default function AddCoffee({handleAddCoffee, getCoffeeData={getCoffeeData
     
     return (
     <>
-    <div className="modal-overlay">
-        <div className="modal-content" ref={addCoffeeFormRef}>
-        <h1>Share your favorite coffee</h1>
+    <div className="modal-dialogue modal-dialogue-centered" tabIndex="-1">
+        <div className="modal-dialogue">
+            <div className="modal-content">
+                <div className="modal-header">
+                <h4 className="modal-title my-2">
+                        Enter your coffee info
+                        </h4>
+                        <button type="button" className="btn-close" data-bs-dismiss="modal-dialogue" aria-label="Close"></button>
+                </div>
+
+        <div ref={addCoffeeFormRef}>
             {errors && <h4>{JSON.stringify(errors)}</h4>}
-            <div className="share-input">
-                <input placeholder='Coffee Name' value={coffeeName} name="coffeeName" onChange={handleCoffeeNameChange}></input>
+       
+            <div className="input-group">
+                <input className="form-control mb-3" placeholder='Coffee Name' value={coffeeName} name="coffeeName" onChange={handleCoffeeNameChange}></input>
             </div>
-            <div className="share-input">
-                <textarea className='input-description' placeholder='Description' value={description} name="description" onChange={handleDescriptionChange}></textarea>
+            <div className="input-group mb-2">
+                <h5>Rate this coffee:</h5>
+                <Rating className="ms-3" name='rating' value={rating} precision={1} onChange={handleRatingChange}/>
             </div>
-            <div className="share-input">
-                <input placeholder='Caffeine Content: mg/serving' value={caffeine} name="caffeine" onChange={handleCaffeineChange}></input>
+            <div className="input-group">
+                <textarea className="form-control mb-3" placeholder='Description' value={description} name="description" onChange={handleDescriptionChange}></textarea>
             </div>
-            <div className="share-input">
-                <Rating name='rating' value={rating} precision={1} onChange={handleRatingChange}/>
+            <div className="input-group">
+                <input className="form-control mb-3" placeholder='Caffeine Content: mg/serving' value={caffeine} name="caffeine" onChange={handleCaffeineChange}></input>
             </div>
-            <div className="share-input">
-                <input type="file" name="coffeeImage" onChange={handlePictureChange}></input>
+            <div className="input-group">
+                <input type="file" name="coffeeImage" className="form-control mb-3" onChange={handlePictureChange}></input>
             </div>
-            <div className="share-submit">
-                <button className='share-button' onClick={handleSubmit}>Submit</button>
+            <div className="input-group w-50 mx-auto">
+                <button className="btn btn-success form-control mb-3" onClick={handleSubmit}>Submit</button>
+            </div>
+
             </div>
         </div>
-    </div>
+
+            </div>
+        </div>
+
     </>
     )
 }

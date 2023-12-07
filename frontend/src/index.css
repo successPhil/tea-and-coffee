@@ -1,6 +1,3 @@
-/* img {
-    width: 100%;
-} */
 
 body {
     margin: 0;
@@ -20,7 +17,13 @@ body {
     min-height: 92.5vh;
 }
 
-.modal-overlay {
+#add-coffee-button {
+    background-color: #3C180E;
+    color:#cacfcd;
+    font-family: 'Montserrat-Regular';
+}
+
+.popup-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -29,7 +32,8 @@ body {
     background: rgba(0, 0, 0, 0.5);
   }
 
-  .modal-favorites {
+
+  .popup-favorites {
     position: fixed;
     top: 0;
     left: 0;
@@ -38,16 +42,66 @@ body {
     background: rgba(0, 0, 0, 0.5);
     z-index:1;
   }
-  
-.modal-content {
+
+.popup-center {
+    position:fixed;
+    top: 25%;
+    left: 25%;
+    display: flex;
+    flex-direction: column;
+    border: 6px solid #3C180E;
+}
+
+.popup-likes-center {
+    position:fixed;
+    top: 35%;
+    left: 35%;
+    border: 6px solid #3C180E;
+    display: flex;
+    flex-direction:column;
+    width: 30%;
+}
+
+.popup-editreview-center {
+    position:fixed;
+    top: 35%;
+    left: 35%;
+    border: 6px solid #3C180E;
+    display: flex;
+    flex-direction:column;
+    width: 30%;
+    padding: 20px;
+}
+
+.popup-addreview-center {
+    position:fixed;
+    top: 35%;
+    left: 35%;
+    border: 6px solid #3C180E;
+    display: flex;
+    flex-direction:column;
+    width: 40%;
+    padding: 20px;
+}
+
+.popup-addcoffee-center {
+    position:fixed;
+    top: 35%;
+    left: 35%;
+    border: 6px solid #3C180E;
+    display: flex;
+    flex-direction:column;
+    width: 40%;
+}
+
+.popup-content {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: white;
     padding: 20px;
     border-radius: 8px;
-    width: 20%;
+    width: 30%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
@@ -55,22 +109,12 @@ body {
     align-items: center;
 }
 
-.modal-content h1 {
+.popup-content h1 {
     display: flex;
     text-align: center;
     margin-bottom: 15px;
     border-bottom: 2px dotted black;
     padding-bottom: 10px;
-}
-
-.share-input {
-    display: flex;
-    margin: 5px;
-    /* justify-content: left;*/
-}
-
-.share-input input {
-    border-radius: 1px;
 }
 
 .input-description {
@@ -99,7 +143,6 @@ body {
 }
 
 .coffee-page {
- background-color: white; 
  width: 65%;
 margin-inline: auto;
 }
@@ -317,9 +360,7 @@ margin-inline: auto;
     width: 100%;
 }
 
-/* .input-container {
-    position: relative;
-  } */
+
   .autofill-search-bar {
           background-color: white;
           border-radius: 50px;
@@ -331,18 +372,11 @@ margin-inline: auto;
           margin-top: 10px;
     }
 
-/* .autofill-search-bar::placeholder {
-    position: relative;
-    transform: translateX(20%);
-  } */
 
   
 .magnifying-glass {
     position: absolute;
-    /* top: 50%;  */
-    /* right: 10px; */
     transform: translate(-40%, -120%);
-    /* /* cursor: pointer; */
 }
 
 .suggestions {
@@ -404,19 +438,11 @@ margin-inline: auto;
 border-radius: 10px;
 }
 
-.edit-review-delete-btn {
-    
-}
-
 .edit-review-delete-btn:hover {
     background-color: #DC3545;
 }
 .edit-review-delete-btn:active {
     background-color: red;
-}
-
-.edit-review-delete-btn {
-    
 }
 
 .edit-review-submit-btn:hover {
@@ -426,7 +452,6 @@ border-radius: 10px;
     background-color:lightgreen;
 }
 
-/* Contacts.css */
 
 .team-members {
     display: flex;
@@ -453,5 +478,5 @@ border-radius: 10px;
   }
   
   
-  /* Add any additional styling as needed */
+
   
