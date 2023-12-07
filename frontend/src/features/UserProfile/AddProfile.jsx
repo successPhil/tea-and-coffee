@@ -31,8 +31,8 @@ export default function AddProfile( { handleAddProfile, getUserData }) {
 
     const addProfile = async (profileData) => {
         console.log(profileData, 'this is getting into addProfile')
-        // const base_url = import.meta.env.VITE_BASE_URL
-        const base_url = "127.0.0.1:8000"
+        const base_url = import.meta.env.VITE_BASE_URL
+        // const base_url = "127.0.0.1:8000"
 
         const url = `http://${base_url}/api/v1/users/profile`
         let formData = new FormData()
@@ -51,18 +51,16 @@ export default function AddProfile( { handleAddProfile, getUserData }) {
         const body = await response.json()
         if (response.status === 400) {
             setErrors(body)
-        } else {
-            navigate("/")
-        }
+        } 
 
 
     }
     return (
         <>
         {errors && <h4>{JSON.stringify(errors)}</h4>}
-        <div className="modal-dialogue modal-dialogue-centered">
+        <div className="modal-dialogue modal-dialogue-centered" tabIndex="-1">
             <div className="modal-dialogue">
-                <div className="modal-content" style={{width: "30%"}}>
+                <div className="modal-content">
                     <div className="modal-header">
                         <h3 className="modal-title">
                         Update your profile!
@@ -86,12 +84,13 @@ export default function AddProfile( { handleAddProfile, getUserData }) {
 
             </div>
             <div className="share-submit">
-                <button className='share-button' onClick={handleSubmit}>Submit</button>
+                <button className='btn btn-success' onClick={handleSubmit}>Submit</button>
             </div>
 
             </div>
             </div>
-        </div>
+            </div>
+        
         </>
     )
 }

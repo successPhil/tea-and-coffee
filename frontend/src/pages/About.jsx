@@ -1,4 +1,4 @@
-import logo from "../pages/about/assets/Images/Logo_2.png"
+// import logo from "../../src/assets/logo_2b.png"
 import coffeeHyena from "../pages/about/assets/Images/hyenaBurrista.jpg"
 import hyenaWorker from "../pages/about/assets/Images/hyenaWorker.jpg"
 import hyenaMascot from "../pages/about/assets/Images/hyenaMascot.jpg"
@@ -21,10 +21,10 @@ export default function About() {
             <li>Favorite, Leave reviews, and interact with the community!</li>
         </ul>
         </div>
-
+{/* 
     <div className="profile-logo"> 
     <img src={logo} alt="Company logo" className="about-image"/>
-    </div>
+    </div> */}
 
     <div className="company-about">
     <Divider/>

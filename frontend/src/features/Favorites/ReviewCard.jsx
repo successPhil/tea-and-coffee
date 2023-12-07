@@ -3,8 +3,8 @@ export default function ReviewCard  ({review} ) {
   
     return (
         <>
-        <div className="card mb-3">
-      <div className="card-body">
+        <div className="card m-3">
+      <div className="card-body rounded" style={{ backgroundColor: 'rgba(180, 112, 52, 0.5)', border: '3px solid #3C180E', color: '#3C180E'}}>
         <div className="d-flex justify-content-between align-items-center">
             <h5 className="card-title">{review.user.username}</h5>
             <Rating name="read-only" size="small" value={review.rating} readOnly />

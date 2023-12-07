@@ -26,12 +26,12 @@ export default function ReviewList({ reviews, toggleListVisibility }) {
   if (hasReviews && hasCoffees && selectedCoffee) {
     return (
       <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
-        <div className="modal-content" style={{ width: "45%", height: "600px" }}>
+        <div className="modal-content popup-center rounded p-4 bg-warning-subtle" style={{ width: "45%", height: "600px" }}>
           <div className="modal-header">
-            <h5 className="modal-title text-center w-100">{capitalizeWords(selectedCoffee.name)} Reviews</h5>
+            <h5 className="modal-title text-center w-100 mb-2">{capitalizeWords(selectedCoffee.name)} Reviews</h5>
             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={toggleListVisibility}></button>
           </div>
-          <div className="modal-body overflow-auto">
+          <div className="modal-body overflow-auto mt-2">
             {reviews.map((review) => (
               <ReviewCard key={review.id} review={review} />
             ))}

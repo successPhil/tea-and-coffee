@@ -94,14 +94,14 @@ export default function Favorites() {
         </button>
       </div>
         {showLikesInfo && (
-          <div className="modal-favorites">
-            <div className="modal-content">
-              <span className="close" onClick={handleClose}>
+          <div className="popup-favorites">
+            <div className="popup-likes-center bg-warning-subtle rounded p-1">
+              <span className="close align-self-end" onClick={handleClose}>
                 &times;
               </span>
-              <h6>{capitalizeWords(selectedCoffee.name)}</h6>
-              <p>Total Likes: {likesTotalCount}</p>
-              <p>Liked by: {likesTotalList.join(', ')}</p>
+              <h6 className='text-center'>{capitalizeWords(selectedCoffee.name)}</h6>
+              <p className='px-4'>Total Likes: {likesTotalCount}</p>
+              <p className='px-4'>Liked by: {likesTotalList.join(', ')}</p>
             </div>
           </div>
         )}

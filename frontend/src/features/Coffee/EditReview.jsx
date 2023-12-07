@@ -54,7 +54,7 @@ export default function EditReview({ coffeeId, handleEditReview, selectedUserRev
   };
 
     const handleOffClick = (event) => {
-        const modalContent = document.querySelector('.modal-content')
+        const modalContent = document.querySelector('.popup-editreview-center')
         if (!modalContent.contains(event.target)) {
             handleEditReview()
         }
@@ -66,18 +66,21 @@ export default function EditReview({ coffeeId, handleEditReview, selectedUserRev
 
   return (
     <>
-      <div className="modal-overlay" onClick={handleOffClick}>
-        <div className="modal-content">
+      <div className="popup-overlay" onClick={handleOffClick}>
+        <div className="popup-editreview-center bg-warning-subtle rounded">
           <h1>Edit Your Review</h1>
           {errors && <h4>{JSON.stringify(errors)}</h4>}
         
-          <div className="share-input">
-          <Rating name='rating' value={rating} precision={1} onChange={handleRatingChange}/>
+          <div className="share-input d-flex align-items-center px-4">
+           
+            <span>Rate this coffee: </span>
+          <Rating className="" name='rating' value={rating} precision={1} onChange={handleRatingChange}/>
+
           </div>
 
-          <div className="share-input">
+          <div className="input-group">
             <textarea
-              className="input-description"
+              className="input-group-lg w-75 mt-4 mx-auto"
               placeholder="Review Text"
               value={text}
               onChange={handleTextChange}

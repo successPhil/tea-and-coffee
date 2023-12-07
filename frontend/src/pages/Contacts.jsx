@@ -10,7 +10,7 @@ import coolDeveloperLogo from '../assets/linkdinphoto.jpeg'
 import mikeTyler from '../assets/mikeTyler.jpeg'
 import ContactsCard from '../features/Contacts/ContactsCard';
 import coolBatman from '../assets/batman.jpeg'
-import coolPopeye from '../assets/popeye.jpg'
+import coreyPlaceholder from "../assets/coreyplaceholder.png"
 
 export default function Contacts() {
   const [ firstName, setFirstName ] = useState("")
@@ -64,7 +64,7 @@ export default function Contacts() {
     {
       name: 'Corey Sullivan',
       role: 'Accomplished Full Stack Software Engineer, Expertise in developing robust applications, Utilizes a tech stack including Django, React, PostgreSQL, Docker, and AWS',
-      imageSrc: `${coolPopeye}`, // Replace with actual image paths
+      imageSrc: `${coreyPlaceholder}`, // Replace with actual image paths
       socialLinks: [
         { url: 'https://github.com/successPhil', icon: `${gitHubIcon}` },
         { url: 'https://www.linkedin.com/in/phillip-basti/', icon: `${linkdinIcon}` },
@@ -79,6 +79,7 @@ export default function Contacts() {
     return (
       <div>
           <div className="container">
+            <div className="">
       <div className="row">
         {teamMembers.map((member, index) => (
           <div key={index} className="col-lg-3 col-md-6 mb-4">
@@ -173,6 +174,7 @@ export default function Contacts() {
       <div style={{marginTop: '20px'}}>
       <SimpleSnackbar handleSnackbarClick={handleSnackbarClick}/>
       </div>
+    </div>
     </div>
     </div>
   );
