@@ -11,6 +11,7 @@ import mikeTyler from '../assets/mikeTyler.jpeg'
 import ContactsCard from '../features/Contacts/ContactsCard';
 import coolBatman from '../assets/batman.jpeg'
 import coreyPlaceholder from "../assets/coreyplaceholder.png"
+import tylerPicture from '../assets/half-body-headshot-tyler.jpg'
 
 export default function Contacts() {
   const [ firstName, setFirstName ] = useState("")
@@ -43,8 +44,8 @@ export default function Contacts() {
     },
     {
       name: 'Tyler Kendall',
-      role: 'Full Stack Software Engineeer Skilled in building comprehensive applications Proficient with Django, React, PostgreSQL, Docker, and AWS',
-      imageSrc: `${mikeTyler}`, // Replace with actual image paths
+      role: `A seasoned diesel technician turned full-stack software engineer, bringing a decade of marriage, two kids, and a third on the way. Enthusiastic about coding, cooking, gaming, and outdoor adventures.`,
+      imageSrc: `${tylerPicture}`, // Replace with actual image paths
       socialLinks: [
         { url: 'https://github.com/successPhil', icon: gitHubIcon },
         { url: 'https://www.linkedin.com/in/phillip-basti/', icon: linkdinIcon },
@@ -82,7 +83,7 @@ export default function Contacts() {
             <div className="">
       <div className="row">
         {teamMembers.map((member, index) => (
-          <div key={index} className="col-lg-3 col-md-6 mb-4">
+          <div key={index} className="col-lg-3 col-md-6 mb-4 mt-4">
             <ContactsCard
               name={member.name}
               role={member.role}
