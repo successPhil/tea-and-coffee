@@ -1,6 +1,7 @@
 import { useState, useContext, useEffect } from "react"
 import UserContext from "../contexts/UserContext"
 import UserSearchCard from "../features/UserProfile/UserSearchCard";
+import logo from '../assets/final-logo-final.png'
 
 
 export default function UserSearch () {
@@ -74,7 +75,11 @@ export default function UserSearch () {
         <div className="container">
         <div className="flex-column">
         <h1 className="mt-4 mb-4">{userSearchData.username}</h1>
-        <img src={userSearchData.picture} alt="Profile Pic" className="round img-fluid float-start" style={{width: '200px'}}/>
+        {userSearchData?.picture ? (
+          <img src={userSearchData.picture} alt="Profile Pic" className="round img-fluid float-start" style={{width: '200px'}}/>
+        ) : (
+          <img src={logo} alt="placeholder" style={{ width: '200px', border: '3px solid #3C180E' }} className="img-thumbnail round align-self-start bg-warning-subtle mb-2" />
+        )}
         </div>
         <div className="row">
         <h3 className="p-4 row m-4 text-start">{userSearchData.about_me}</h3>
