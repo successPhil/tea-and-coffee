@@ -2,7 +2,7 @@ import { useState, useContext } from "react"
 import UserContext from "../contexts/UserContext"
 import AddProfile from "../features/UserProfile/AddProfile"
 // import defaultProfile from "../../src/assets/logo_2.png"
-import logo from '../assets/logo_2b.png'
+import logo from '../assets/final-logo-final.png'
 
 
 export default function Profile ( { getUserData }) {

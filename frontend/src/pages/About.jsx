@@ -1,10 +1,10 @@
 // import logo from "../../src/assets/logo_2b.png"
-import coffeeHyena from "../pages/about/assets/Images/hyenaBurrista.jpg"
-import hyenaWorker from "../pages/about/assets/Images/hyenaWorker.jpg"
-import hyenaMascot from "../pages/about/assets/Images/hyenaMascot.jpg"
+import coffeeHyena from "../assets/hyenaBurrista.jpg"
+import hyenaWorker from "../assets/hyenaWorker.jpg"
+import hyenaMascot from "../assets/hyenaMascot.jpg"
 import AutoAwesomeOutlinedIcon from '@mui/icons-material/AutoAwesomeOutlined';
 import Documentation from "./Documentation"
-import logo from '../assets/logo_2b.png'
+import logo from '../assets/final-logo-final.png'
 
 const Divider = () => {
     return <div style={{ borderBottom: '1px solid #ccc', margin: '20px 0' }} />;
@@ -13,19 +13,29 @@ const Divider = () => {
 export default function About() {
     return (
     <>
+    <div>
     
     <div className="add-a-coffee-left">
+    <div className="profile-logo"> 
+    <img src={logo} alt="Company logo" className="about-image" />
+    </div>
         <h4>Welcome to the Echo Coffee Co.!</h4>
         <ul>
-            <li>Browse our coffee database</li>
-            <li>Add your own coffees to the database</li>
-            <li>Favorite, Leave reviews, and interact with the community!</li>
+        <li>Discover new coffees&#58; 
+              On the Echo Coffee Co. site&#44; you can browse our database of a couple dozen &#40;and growing&#33;&#41; excellent coffees. Search for a recipe, or learn about a coffee type.
+            </li>
+            <li>Add your own coffees&#58; 
+              Can't find what you&apos;re looking for&#63; Add it to our collection. You can also add your favorite coffee recipes to the collection for others to enjoy. 
+            </li>
+            <li>Write a review&#58; 
+              Write a review about a coffee or recipe. You can also like other recipes.
+            </li>
+            <li>Meet new people&#58; 
+              If you think our baboons are beautiful &#40;some people are into that kind of thing&#41;&#44; wait till you meet our customers&#33; On our site, you can get to know other coffee lovers and share recipes.
+            </li>
         </ul>
         </div>
 
-    <div className="profile-logo"> 
-    <img src={logo} alt="Company logo" className="about-image"/>
-    </div>
 
     <div className="company-about">
     <Divider/>
@@ -78,6 +88,7 @@ export default function About() {
     <br/>
     <button className="coffee-control-button"><span className='coffee-control-icon'><AutoAwesomeOutlinedIcon /></span> Suggest a feature</button>
      {/* <button className="coffee-control-button"><AutoAwesomeOutlinedIcon /> Suggest a feature</button> */}
+     </div>
    <Documentation/>
     
     </>)
